@@ -1,14 +1,54 @@
 <article class='container-main'>
-  <%= image_tag 'overview.jpg' %>
+  <section class='search-box'>
+    <%= form_tag '/bookings/search', method: :post do %>
+      <%= label_tag 'Check-in' %><br>
+      <%= date_field :check_in, nil, min: Date.today %><br><br>
+
+      <%= label_tag 'Check-out' %><br>
+      <%= date_field :check_out, nil, min: Date.today  %><br><br>
+
+      <div class='search-box-dropdowns'>
+        <div class='sbdp-adults'>
+          <%= label_tag 'Adults' %><br>
+          <%= select_tag(:adults, options_for_select([['1',  '1'], ['2',  '2'], ['3+', '3']])) %>
+        </div>
+        <div class='sbdp-children'>
+          <%= label_tag 'Children' %><br>
+          <%= select_tag(:children, options_for_select([['0',  '0'], ['1',  '1'], ['2+', '2']])) %>
+        </div>
+      </div>
+      <div class='sbdp-submit'>
+        <%= submit_tag 'Find Room' %>
+      </div>
+    <% end %>
+  </section>
   <section class='container-sub'>
-    <h1>This is my heading</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed risus ultricies tristique nulla aliquet enim. At erat pellentesque adipiscing commodo elit at imperdiet dui. Tincidunt arcu non sodales neque sodales. Convallis aenean et tortor at. Scelerisque eu ultrices vitae auctor eu augue ut lectus. Tellus cras adipiscing enim eu turpis. Consectetur libero id faucibus nisl tincidunt eget nullam non. Est ullamcorper eget nulla facilisi etiam dignissim diam. Gravida quis blandit turpis cursus in. Vehicula ipsum a arcu cursus vitae congue mauris rhoncus aenean. Odio tempor orci dapibus ultrices in iaculis nunc sed. Nam aliquam sem et tortor consequat id porta. Magna fringilla urna porttitor rhoncus dolor purus. Placerat orci nulla pellentesque dignissim enim sit. Volutpat diam ut venenatis tellus in metus.</p>
-
-    <p>Vestibulum morbi blandit cursus risus at ultrices mi tempus. Maecenas volutpat blandit aliquam etiam erat. Augue neque gravida in fermentum. Volutpat commodo sed egestas egestas fringilla phasellus faucibus. Vivamus arcu felis bibendum ut. Ipsum dolor sit amet consectetur adipiscing elit duis. Elit at imperdiet dui accumsan sit amet nulla facilisi morbi. Quis eleifend quam adipiscing vitae proin sagittis. In fermentum posuere urna nec tincidunt. Bibendum est ultricies integer quis auctor elit sed vulputate. Eu sem integer vitae justo. Porttitor massa id neque aliquam vestibulum morbi. Aliquam nulla facilisi cras fermentum.</p>
-
-    <p>Nullam eget felis eget nunc lobortis mattis. Tortor vitae purus faucibus ornare. Nam at lectus urna duis. A condimentum vitae sapien pellentesque habitant morbi tristique senectus. Dignissim convallis aenean et tortor. Cras adipiscing enim eu turpis egestas pretium aenean pharetra magna. Volutpat blandit aliquam etiam erat velit scelerisque in dictum. Nam libero justo laoreet sit amet cursus. Iaculis at erat pellentesque adipiscing commodo. Facilisi morbi tempus iaculis urna id volutpat lacus laoreet. Neque laoreet suspendisse interdum consectetur. Mauris vitae ultricies leo integer malesuada nunc vel. Vel facilisis volutpat est velit egestas. Justo laoreet sit amet cursus sit amet. Praesent tristique magna sit amet purus gravida. Aenean pharetra magna ac placerat vestibulum lectus mauris. Nunc sed velit dignissim sodales ut eu sem integer.</p>
-
-    <p>A pellentesque sit amet porttitor. Id cursus metus aliquam eleifend mi in nulla. Nisl purus in mollis nunc sed id. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. Netus et malesuada fames ac turpis egestas maecenas pharetra. Eget magna fermentum iaculis eu non. Auctor urna nunc id cursus metus aliquam. Euismod elementum nisi quis eleifend quam adipiscing. In iaculis nunc sed augue. Feugiat in fermentum posuere urna nec tincidunt praesent.</p>
-
+    <div class='content'>
+      <div class="content-text-box" id='ctb-1'>
+        <h3>Comfort.</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+      <div class='content-img'>
+        <%= image_tag 'img_1.jpg' %>
+      </div>
+    </div>
+    <div class='content'>
+      <div class='content-img'>
+        <%= image_tag 'img_2.jpg' %>
+      </div>
+      <div class="content-text-box" id='ctb-2'>
+        <h3>Elegance.</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+    </div>
+    <div class='content'>
+      <div class="content-text-box" id='ctb-3'>
+        <h3>Nature.</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+      <div class='content-img'>
+        <%= image_tag 'img_3.jpg' %>
+      </div>
+    </div>
   </section>
 </article>
