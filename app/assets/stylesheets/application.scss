@@ -14,3 +14,77 @@
 
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+
+html {
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+
+}
+
+body img {
+  width: 100%;
+  height: 100%;
+}
+
+.navbar {
+  background-color: white;
+  display: flex;
+  margin: 5px;
+  margin-top: 0;
+  margin-right: 0;
+  margin-left: 0;
+  padding: 10px;
+  font-weight: 700;
+}
+
+.navbar-left {
+  width: 30%;
+  text-align: center;
+}
+
+.navbar-center {
+  width: 30%;
+  text-align: center;
+}
+.navbar-right {
+  width: 30%;
+  text-align: center;
+}
+
+#company-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 35px;
+  margin: 0px;
+}
+
+a.navbar-link:link {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+}
+
+a.navbar-link:visited {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+}
+
+a.navbar-link:hover {
+  text-decoration: none;
+  font-weight: bold;
+  color: gray;
+}
+
+a.navbar-link:active {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+}
+
+.container-sub {
+  color: black;
+  margin: 15px;
+  padding: 30px;
+}

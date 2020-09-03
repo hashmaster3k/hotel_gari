@@ -28,3 +28,6 @@
 
 # Ignore coverage directory for simplecov testing.
 /coverage
+
+# Ignore MacOS file organizer
+/app/assets/.DS_Store
