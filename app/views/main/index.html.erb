@@ -1,0 +1,54 @@
+<article class='container-main'>
+  <section class='search-box'>
+    <%= form_tag '/bookings/search', method: :post do %>
+      <%= label_tag 'Check-in' %><br>
+      <%= date_field :check_in, nil, min: Date.today %><br><br>
+
+      <%= label_tag 'Check-out' %><br>
+      <%= date_field :check_out, nil, min: Date.today  %><br><br>
+
+      <div class='search-box-dropdowns'>
+        <div class='sbdp-adults'>
+          <%= label_tag 'Adults' %><br>
+          <%= select_tag(:adults, options_for_select([['1',  '1'], ['2',  '2'], ['3+', '3']])) %>
+        </div>
+        <div class='sbdp-children'>
+          <%= label_tag 'Children' %><br>
+          <%= select_tag(:children, options_for_select([['0',  '0'], ['1',  '1'], ['2+', '2']])) %>
+        </div>
+      </div>
+      <div class='sbdp-submit'>
+        <%= submit_tag 'Find Room' %>
+      </div>
+    <% end %>
+  </section>
+  <section class='container-sub'>
+    <div class='content'>
+      <div class="content-text-box" id='ctb-1'>
+        <h3>Comfort.</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+      <div class='content-img'>
+        <%= image_tag 'img_1.jpg' %>
+      </div>
+    </div>
+    <div class='content'>
+      <div class='content-img'>
+        <%= image_tag 'img_2.jpg' %>
+      </div>
+      <div class="content-text-box" id='ctb-2'>
+        <h3>Elegance.</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+    </div>
+    <div class='content'>
+      <div class="content-text-box" id='ctb-3'>
+        <h3>Nature.</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+      <div class='content-img'>
+        <%= image_tag 'img_3.jpg' %>
+      </div>
+    </div>
+  </section>
+</article>
