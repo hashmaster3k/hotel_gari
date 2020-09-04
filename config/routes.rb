@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 
   # main controller
   get '/', to: 'main#index'
+
+  get '/accommodations', to: 'accommodations#index'
 end
