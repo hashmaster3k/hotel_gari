@@ -132,12 +132,51 @@ a.navbar-link:active {
   height: 375px;
 }
 
-.content-img {
-
-}
-
 .content-text-box {
   background-color: #d2d5ce;
   padding: 30px;
   // z-index: 2;
+}
+
+.container-main-acc {
+  text-align: -webkit-center;
+}
+
+.container-acc {
+  width: 80%;
+  background-color: #ffffff82;
+  color: black;
+  margin: 15px;
+  padding: 25px;
+}
+
+// #accommodations-carousel {
+//   width: 80%;
+// }
+
+.container-stats-top {
+  background-color: #ffffff82;
+  color: black;
+  margin: 15px;
+  padding: 15px;
+  text-align: center;
+}
+
+.container-stats-bottom {
+  background-color: #ffffff82;
+  color: black;
+  margin: 15px;
+  padding: 15px;
+  text-align: center;
+}
+
+.stat-row {
+  display: flex;
+}
+
+.stat-col {
+  padding: 15px;
+  margin: 15px;
+  background-color: #d2d5ce;
+  flex-grow: 1;
 }
