@@ -5,8 +5,11 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+
 
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
@@ -15,7 +18,7 @@
         <%= link_to 'Hotel Gari', '/', class: 'navbar-link', id: 'company-title' %>
       </div>
       <div class="navbar-right">
-        <%= link_to 'ACCOMMODATIONS', '/accommodation', class: 'navbar-link' %>
+        <%= link_to 'ACCOMMODATIONS', '/accommodations', class: 'navbar-link' %>
         <%= link_to 'AMENITIES', '/amenities', class: 'navbar-link' %>
         <%= link_to "BOOK", '/booking', class: 'navbar-link' %>
         <%= link_to "LOGIN", '/login', class: 'navbar-link' %>

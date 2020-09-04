@@ -1,0 +1,76 @@
+<article class='container-main-acc'>
+  <section class='container-stats-top'>
+    <div class='row'>
+      <h3>Accommodations</h3>
+    </div>
+    <div class='row'>
+      <div class='col'>
+          Total number of villas: <%= @rooms.total %><br>
+          Total number of villas with river view: <%= @rooms.total_with_view %>
+      </div>
+      <div class='col'>
+        Numer of available villas: <%= @rooms.total_available %><br>
+        Number of available villas with river view: <%= @rooms.total_available_with_view %>
+      </div>
+    </div>
+    <div class='row'>
+      <div class="col">
+        Average cost of villa: $<%= @rooms.average_cost %> per night
+      </div>
+    </div>
+  </section>
+
+  <section class='container-acc'>
+    <div id="accommodations-carousel" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel" data-slide-to="1"></li>
+        <li data-target="#carousel" data-slide-to="2"></li>
+      </ol>
+
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <%= image_tag 'carousel_1.jpg' %>
+        </div>
+        <div class="carousel-item">
+          <%= image_tag 'carousel_2.jpg' %>
+        </div>
+        <div class="carousel-item">
+          <%= image_tag 'carousel_3.jpg' %>
+        </div>
+        <div class="carousel-item active">
+          <%= image_tag 'carousel_4.jpg' %>
+        </div>
+        <div class="carousel-item active">
+          <%= image_tag 'carousel_5.jpg' %>
+        </div>
+        <div class="carousel-item active">
+          <%= image_tag 'carousel_6.jpg' %>
+        </div>
+      </div>
+
+      <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </section>
+
+  <section class='container-stats-bottom'>
+    <div class='stat-row'>
+      <div class='stat-col'>
+        <h3>One Bed Villa</h3>
+        <hr>
+        <p>some info</p>
+      </div>
+      <div class='stat-col'>
+        <h3>Two Bed Villa</h3>
+        <hr>
+      </div>
+    </div>
+  </section>
+</article>
