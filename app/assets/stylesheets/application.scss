@@ -150,10 +150,6 @@ a.navbar-link:active {
   padding: 25px;
 }
 
-// #accommodations-carousel {
-//   width: 80%;
-// }
-
 .container-stats-top {
   background-color: #ffffff82;
   color: black;
@@ -179,4 +175,52 @@ a.navbar-link:active {
   margin: 15px;
   background-color: #d2d5ce;
   flex-grow: 1;
+}
+
+.content-amenities {
+  margin: 15px;
+  display: flex;
+}
+
+.content-amenities img{
+  width: 400px;
+  height: 237px;
+}
+
+.content-amenities-text-box {
+  background-color: #d2d5ce;
+  padding: 30px;
+}
+
+.content-amen-split-bottom {
+  text-align: right;
+}
+
+.content-amen-split-bottom a:link {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+}
+
+.content-amen-split-bottom a:visited {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+}
+
+.content-amen-split-bottom a:hover {
+  text-decoration: none;
+  font-weight: bold;
+  color: gray;
+}
+
+.content-amen-split-bottom a:active {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+}
+
+.amen-sign-up {
+  border: solid;
+  padding: 5px;
 }
