@@ -8,14 +8,22 @@ RSpec.describe 'AMENITIES INDEX PAGE' do
   end
 
   it 'has amenities and activities listed' do
+    yoga = Activity.create!(name: 'Yoga',
+                    description: 'core strength',
+                    capacity: 5,
+                    start_times: ['7:00', '9:00', '11:00'],
+                    image: 'amen_1.jpg')
+    gym = Activity.create!(name: 'Gym',
+                    description: 'core strength',
+                    capacity: 5,
+                    start_times: ['7:00', '9:00', '11:00'],
+                    image: 'amen_2.jpg')
+
     visit '/amenities'
 
-    expect(page).to have_content('Yoga')
-    expect(page).to have_content('Gym')
-    expect(page).to have_content('Massage')
-    expect(page).to have_content('Plunge Pool')
-    expect(page).to have_content('River Rafting')
-    expect(page).to have_content('Field Riding')
-    expect(page).to have_content('Taste School')
+    expect(page).to have_content(yoga.name)
+    expect(page).to have_xpath("//img['#{yoga.image}']")
+    expect(page).to have_content(gym.name)
+    expect(page).to have_xpath("//img['#{gym.image}']")
   end
 end
