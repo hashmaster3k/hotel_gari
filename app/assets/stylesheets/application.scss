@@ -237,3 +237,44 @@ a.navbar-link:active {
   display: flex;
   justify-content: center;
 }
+
+.login-main-container {
+  display: flex;
+  justify-content: center;
+}
+
+.login-box {
+  margin: 15px;
+  margin-left: 90px;
+  padding: 30px;
+  display: inline-block;
+  background-color: #ffffffd9;
+  font-weight: bold;
+}
+
+.new-user-main {
+  display: flex;
+  justify-content: center;
+}
+
+.new-user-sub{
+  background-color: #ffffffd9;
+  padding: 30px;
+}
+
+.new-user-form {
+  display: flex;
+}
+
+.login-cred {
+  display: flex;
+}
+
+.username, .password, .first-name, .last-name {
+  margin: 5px;
+}
+
+
+.names-email {
+  display: flex;
+}

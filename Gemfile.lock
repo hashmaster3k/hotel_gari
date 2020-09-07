@@ -47,6 +47,7 @@ GEM
     arel (9.0.0)
     autoprefixer-rails (9.8.6.3)
       execjs
+    bcrypt (3.1.16)
     bindex (0.8.1)
     bootsnap (1.4.8)
       msgpack (~> 1.0)
@@ -54,9 +55,6 @@ GEM
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 1.14.3, < 2)
       sassc-rails (>= 2.0.0)
-    bootstrap-sass (3.4.1)
-      autoprefixer-rails (>= 5.2.1)
-      sassc (>= 2.0.0)
     builder (3.2.4)
     capybara (3.33.0)
       addressable
@@ -224,9 +222,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt (~> 3.1.7)
   bootsnap (>= 1.1.0)
   bootstrap (~> 5.0.0.alpha1)
-  bootstrap-sass
   capybara
   coffee-rails (~> 4.2)
   jbuilder (~> 2.5)
