@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   get '/', to: 'main#index'
 
   get '/accommodations', to: 'accommodations#index'
+
+  get '/amenities', to: 'amenities#index'
 end

@@ -1,0 +1,28 @@
+<article class='container-main'>
+  <section class='container-sub'>
+    <div class="amen-header">
+      <div class='amen-title'>
+        <h3>Amenities and Activities</h3>
+      </div>
+    </div>
+    <% @activites.each do |activity| %>
+      <div class='content-amenities' id="activity-<%= activity.id %>">
+        <div class='content-amenities-img'>
+          <%= image_tag activity.image %>
+        </div>
+        <div class="content-amenities-text-box">
+          <div class='content-amen-split-top'>
+            <h3><%= activity.name %></h3>
+            <p><%= activity.description %></p>
+          </div>
+          <div class='content-amen-split-bottom'>
+            <% if activity.capacity > 0 %>
+              <%= link_to 'SIGN UP', '', class: 'amen-sign-up' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+  </section>
+</article>
