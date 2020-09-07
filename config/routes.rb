@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   get '/accommodations', to: 'accommodations#index'
 
   get '/amenities', to: 'amenities#index'
+
+  get '/bookings', to: 'bookings#index'
 end
