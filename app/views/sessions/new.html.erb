@@ -1,0 +1,17 @@
+<article class='login-main-container'>
+  <section class='login-box'>
+    <%= form_tag '/login', method: :post do %>
+      <%= label_tag 'Username' %><br>
+      <%= text_field_tag :username, nil, required: true %><br><br>
+
+      <%= label_tag 'Password' %><br>
+      <%= password_field_tag :password, nil, required: true  %><br><br>
+
+      <div class='sbdp-submit'>
+        <%= submit_tag 'Login' %>
+      </div>
+    <% end %>
+    <br><%= link_to 'New User', '/users/new' %>
+    <br><%= link_to 'Forgot Password', '' %>
+  </section>
+</article>
