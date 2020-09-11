@@ -65,7 +65,7 @@ Activity.create(name: 'Taste School',
 
 User.create(role: 1,
             username: 'admin',
-            password: 'admin123',
+            password: '123',
             first_name: 'Rick',
             last_name: 'Steves',
             address: '1322 Admin Rd',
@@ -73,7 +73,7 @@ User.create(role: 1,
             state: 'CO',
             zip: 80210)
 
-User.create!(username: 'jojames12@yahoo.com',
+User.create!(username: 'user',
             password: '123',
             first_name: 'Joe',
             last_name: 'James',
