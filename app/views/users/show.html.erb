@@ -1,2 +1,27 @@
-<h1>Welcome <%= @user.first_name %>!</h1>
-<%= button_to 'LOG OUT', '/logout' %>
+<div class='profile-container'>
+  <div class='welcome-message'>
+    <h1>Welcome <%= current_user.first_name %>!</h1>
+    <%= button_to 'LOG OUT', '/logout', class: 'logout-button' %>
+  </div>
+
+
+  <article class='profile-main'>
+    <section class='profile-nav'>
+      <div class='profile-nav-link' id='profile-overview'>
+        <%= link_to 'Overview', '' %><br><br>
+      </div>
+      <div class='profile-nav-link' id='profile-activities'>
+        <%= link_to 'Activities', '' %><br><br>
+      </div>
+      <div class='profile-nav-link' id='profile-billing'>
+        <%= link_to 'Billing', '' %><br><br>
+      </div>
+      <div class='profile-nav-link' id='profile-profile'>
+        <%= link_to 'Profile', '' %><br><br>
+      </div>
+    </section>
+    <section class='profile-content'>
+      Here is some content
+    </section>
+  </article>
+</div>
