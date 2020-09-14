@@ -4,9 +4,15 @@ class UsersController < ApplicationController
   end
 
   def create
-    new_user = User.create(user_params)
-    session[:user_id] = new_user.id
-    redirect_to user_profile_path
+    @user = User.new(user_params)
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to user_profile_path
+    else
+      flash[:error] = "Error: One or more fields was empty"
+      # redirect_to new_user_path
+      render :new
+    end
   end
 
   private

@@ -4,41 +4,41 @@
     <div class="row">
       <div class="col">
         <%= f.label 'Username/email' %><br>
-        <%= f.text_field :username %><br><br>
+        <%= f.text_field :username, required: true %><br><br>
       </div>
       <div class="col">
         <%= f.label 'Password' %><br>
-        <%= f.password_field :password %><br><br>
+        <%= f.password_field :password, required: true %><br><br>
       </div>
     </div>
     <div class="row">
       <div class="col">
         <%= f.label 'First Name' %><br>
-        <%= f.text_field :first_name %><br><br>
+        <%= f.text_field :first_name, required: true %><br><br>
       </div>
       <div class="col">
         <%= f.label 'Last Name' %><br>
-        <%= f.text_field :last_name %><br><br>
+        <%= f.text_field :last_name, required: true %><br><br>
       </div>
     </div>
     <div class="row">
         <div class="col">
           <%= f.label 'Address' %><br>
-          <%= f.text_field :address %><br><br>
+          <%= f.text_field :address, required: true %><br><br>
         </div>
         <div class="col">
           <%= f.label 'City' %><br>
-          <%= f.text_field :city %><br><br>
+          <%= f.text_field :city, required: true %><br><br>
         </div>
     </div>
     <div class="row">
       <div class="col">
         <%= f.label 'State' %><br>
-        <%= f.text_field :state %><br><br>
+        <%= f.text_field :state, required: true %><br><br>
       </div>
       <div class="col">
         <%= f.label 'Zip' %><br>
-        <%= f.text_field :zip %><br><br>
+        <%= f.text_field :zip, required: true %><br><br>
       </div>
     </div>
     <div class="row">
