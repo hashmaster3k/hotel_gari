@@ -22,7 +22,7 @@ RSpec.describe 'LOGIN PAGE' do
 
     click_button 'Login'
 
-    expect(current_path).to eq('/profile')
+    expect(current_path).to eq(user_profile_path)
     expect(page).to have_content("Welcome #{@user.first_name}")
     expect(page).to have_link('DASHBOARD', visible: false)
   end

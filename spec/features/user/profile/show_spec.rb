@@ -1,8 +1,8 @@
-# spec/features/users/show_spec.rb
+# spec/features/user/profile/show_spec.rb
 
 require 'rails_helper'
 
-RSpec.describe 'USER SHOW PAGE' do
+RSpec.describe 'USER PROFILE SHOW PAGE' do
   before :each do
     @user = User.create!(username: 'user',
                 password: '123',
@@ -16,7 +16,7 @@ RSpec.describe 'USER SHOW PAGE' do
 
   describe 'a visitor' do
     it 'cannot visit the profile page' do
-      visit '/profile'
+      visit '/user/profile'
       expect(page).to have_content("The page you were looking for doesn't exist.")
     end
   end
@@ -30,7 +30,7 @@ RSpec.describe 'USER SHOW PAGE' do
 
       click_button 'Login'
 
-      expect(current_path).to eq('/profile')
+      expect(current_path).to eq('/user/profile')
       expect(page).to have_link('DASHBOARD', visible: false)
 
       expect(page).to have_content("Welcome #{@user.first_name}!")

@@ -5,23 +5,23 @@ require 'rails_helper'
 RSpec.describe 'USER SHOW PAGE' do
   before :each do
     @admin = User.create(role: 1,
-                username: 'admin',
-                password: '123',
-                first_name: 'Rick',
-                last_name: 'Steves',
-                address: '1322 Admin Rd',
-                city: 'Denver',
-                state: 'CO',
-                zip: 80210)
+                        username: 'admin',
+                        password: '123',
+                        first_name: 'Rick',
+                        last_name: 'Steves',
+                        address: '1322 Admin Rd',
+                        city: 'Denver',
+                        state: 'CO',
+                        zip: 80210)
 
     @user = User.create!(username: 'user',
-                password: '123',
-                first_name: 'Joe',
-                last_name: 'James',
-                address: '1382 JJ Drive',
-                city: 'Denver',
-                state: 'CO',
-                zip: 80210)
+                        password: '123',
+                        first_name: 'Joe',
+                        last_name: 'James',
+                        address: '1382 JJ Drive',
+                        city: 'Denver',
+                        state: 'CO',
+                        zip: 80210)
   end
 
   it 'can log out' do
@@ -32,7 +32,7 @@ RSpec.describe 'USER SHOW PAGE' do
 
     click_button 'Login'
 
-    expect(current_path).to eq('/profile')
+    expect(current_path).to eq(user_profile_path)
     expect(page).to have_link('DASHBOARD', visible: false)
 
     click_button 'LOG OUT'

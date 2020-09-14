@@ -32,6 +32,25 @@ body img {
   height: 100%;
 }
 
+.error-flash {
+  padding: 10px;
+  background-color: red;
+  color: white;
+  margin-left: 15px;
+  margin-right: 15px;
+  text-align: center;
+
+}
+.success-flash {
+  padding: 10px;
+  background-color: green;
+  color: white;
+  margin-left: 15px;
+  margin-right: 15px;
+  text-align: center;
+
+}
+
 .navbar {
   background-color: white;
   display: flex;

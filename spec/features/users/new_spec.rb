@@ -17,7 +17,7 @@ RSpec.describe 'USERS NEW PAGE' do
 
     click_button "Create Account"
 
-    expect(current_path).to eq('/profile')
+    expect(current_path).to eq(user_profile_path)
     expect(page).to have_content('Welcome Joe!')
   end
 end

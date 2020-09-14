@@ -3,14 +3,10 @@ class UsersController < ApplicationController
 
   end
 
-  def show
-    render file: "/public/404" if !current_user
-  end
-
   def create
     new_user = User.create(user_params)
     session[:user_id] = new_user.id
-    redirect_to '/profile'
+    redirect_to user_profile_path
   end
 
   private
