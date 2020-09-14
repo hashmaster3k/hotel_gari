@@ -14,8 +14,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   post '/logout', to: 'sessions#destroy'
 
-  get '/users/new', to: 'users#new'
-  post '/users', to: 'users#create'
+  resources :users, only: [:new, :create]
 
   namespace :user do
     get '/profile', to: 'profile#show'
