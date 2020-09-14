@@ -1,48 +1,48 @@
 <article class='new-user-main'>
   <section class='new-user-sub'>
-    <%= form_tag '/users', method: :post do %>
+    <%= form_for @user do |f| %>
     <div class="row">
       <div class="col">
-        <%= label_tag 'Username/email' %><br>
-        <%= text_field_tag :username, nil, required: true %><br><br>
+        <%= f.label 'Username/email' %><br>
+        <%= f.text_field :username %><br><br>
       </div>
       <div class="col">
-        <%= label_tag 'Password' %><br>
-        <%= password_field_tag :password, nil, required: true  %><br><br>
+        <%= f.label 'Password' %><br>
+        <%= f.password_field :password %><br><br>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <%= label_tag 'First Name' %><br>
-        <%= text_field_tag :first_name, nil, required: true  %><br><br>
+        <%= f.label 'First Name' %><br>
+        <%= f.text_field :first_name %><br><br>
       </div>
       <div class="col">
-        <%= label_tag 'Last Name' %><br>
-        <%= text_field_tag :last_name, nil, required: true  %><br><br>
+        <%= f.label 'Last Name' %><br>
+        <%= f.text_field :last_name %><br><br>
       </div>
     </div>
     <div class="row">
         <div class="col">
-          <%= label_tag 'Address' %><br>
-          <%= text_field_tag :address, nil, required: true  %><br><br>
+          <%= f.label 'Address' %><br>
+          <%= f.text_field :address %><br><br>
         </div>
         <div class="col">
-          <%= label_tag 'City' %><br>
-          <%= text_field_tag :city, nil, required: true  %><br><br>
+          <%= f.label 'City' %><br>
+          <%= f.text_field :city %><br><br>
         </div>
     </div>
     <div class="row">
       <div class="col">
-        <%= label_tag 'State' %><br>
-        <%= text_field_tag :state, nil, required: true  %><br><br>
+        <%= f.label 'State' %><br>
+        <%= f.text_field :state %><br><br>
       </div>
       <div class="col">
-        <%= label_tag 'Zip' %><br>
-        <%= text_field_tag :zip, nil, required: true %><br><br>
+        <%= f.label 'Zip' %><br>
+        <%= f.text_field :zip %><br><br>
       </div>
     </div>
     <div class="row">
-      <%= submit_tag 'Create Account' %>
+      <%= f.submit %>
     </div>
     <% end %>
   </section>
