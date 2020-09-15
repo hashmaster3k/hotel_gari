@@ -19,5 +19,7 @@ Rails.application.routes.draw do
   namespace :user do
     get '/profile', to: 'profile#index'
     get '/profile/info', to: 'profile#show'
+    get '/profile/edit', to: 'profile#edit'
+    patch '/profile', to: 'profile#update'
   end
 end

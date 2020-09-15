@@ -1,0 +1,56 @@
+<div class='profile-container'>
+  <div class='welcome-message'>
+    <%= render partial: "header" %>
+  </div>
+  <article class='profile-main'>
+    <%= render partial: "nav_profile" %>
+    <section class='profile-content'>
+      <div class="row">
+        <div class="col">
+          Username/email <br>
+          <%= text_field_tag :username, current_user.username, disabled:true %><br><br>
+        </div>
+        <div class="col">
+          First name <br>
+          <%= text_field_tag :first_name, current_user.first_name, disabled:true %><br><br>
+        </div>
+        <div class="col">
+          Last name <br>
+          <%= text_field_tag :first_name, current_user.last_name, disabled:true %><br><br>
+        </div>
+        <div class="col">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          Address <br>
+          <%= text_field_tag :address, current_user.address, disabled:true %><br><br>
+        </div>
+        <div class="col">
+          City <br>
+          <%= text_field_tag :city, current_user.city, disabled:true %><br><br>
+        </div>
+        <div class="col">
+          State <br>
+          <%= text_field_tag :state, current_user.state, disabled:true %><br><br>
+        </div>
+        <div class="col">
+          Zip <br>
+          <%= text_field_tag :zip, current_user.zip, disabled:true %><br><br>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col text-align">
+          <div class="text-center">
+            <%= link_to "Update Personal Information", user_profile_edit_path %>
+          </div>
+        </div>
+        <div class="col text-align">
+          <div class="text-center">
+            <%= link_to "Update Password" %>
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+</div>

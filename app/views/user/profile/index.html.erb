@@ -1,0 +1,15 @@
+<div class='profile-container'>
+  <div class='welcome-message'>
+    <%= render partial: "header" %>
+  </div>
+  <article class='profile-main'>
+    <%= render partial: "nav_profile" %>
+    <section class='profile-content'>
+
+      <div class="date">
+        <%= @date.strftime("%A %B %d, %Y") %>
+      </div>
+
+    </section>
+  </article>
+</div>

@@ -335,3 +335,27 @@ a.navbar-link:active {
   background: #d2d5ce;
   padding: 25px;
 }
+
+.profile-nav-link a:link {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+}
+
+.profile-nav-link a:visited {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+}
+
+.profile-nav-link a:hover {
+  text-decoration: none;
+  font-weight: bold;
+  color: gray;
+}
+
+.profile-nav-link a:active {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+}
