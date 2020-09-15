@@ -9,8 +9,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_profile_path
     else
-      flash[:error] = "Error: One or more fields was empty"
-      # redirect_to new_user_path
+      flash[:error] = @user.errors.full_messages.first
       render :new
     end
   end
