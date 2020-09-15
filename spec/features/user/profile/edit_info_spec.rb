@@ -1,8 +1,8 @@
-# spec/features/user/profile/edit_spec.rb
+# spec/features/user/profile/edit_info_spec.rb
 
 require 'rails_helper'
 
-RSpec.describe 'USER PROFILE EDIT PAGE' do
+RSpec.describe 'USER PROFILE EDIT INFO PAGE' do
   before :each do
     @user = User.create!(username: 'user',
                 password: '123',
