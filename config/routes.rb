@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
 
   namespace :user do
-    get '/profile', to: 'profile#show'
+    get '/profile', to: 'profile#index'
+    get '/profile/edit', to: 'profile#edit'
   end
 end
