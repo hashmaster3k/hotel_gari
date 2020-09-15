@@ -57,7 +57,7 @@ RSpec.describe 'USER PROFILE EDIT PAGE' do
 
       click_button "Update User"
 
-      expect(page).to have_content('Error: One or more fields was empty')
+      expect(page).to have_content("Address can't be blank")
 
       expect(page).to have_selector("input[value='#{@user.username}']")
       expect(page).to have_selector("input[value='#{@user.first_name}']")
@@ -65,6 +65,34 @@ RSpec.describe 'USER PROFILE EDIT PAGE' do
       expect(page).to have_selector("input[value='Boulder']")
       expect(page).to have_selector("input[value='#{@user.state}']")
       expect(page).to have_selector("input[value='80102']")
+    end
+
+    it 'cannot edit an account using an existing username/email' do
+      User.create!(username: 'jojames12@yahoo.com',
+                  password: '123',
+                  first_name: 'Johnny',
+                  last_name: 'Justice',
+                  address: '123 JJ Street',
+                  city: 'LA',
+                  state: 'CO',
+                  zip: 90210)
+
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+
+      visit '/user/profile/edit'
+
+      fill_in :user_username, with: 'jojames12@yahoo.com'
+      fill_in :user_first_name, with: 'Joe'
+      fill_in :user_last_name, with: 'James'
+      fill_in :user_address, with: '123 Boulder Rd'
+      fill_in :user_city, with: 'Boulder'
+      fill_in :user_state, with: 'CO'
+      fill_in :user_zip, with: 80102
+
+      click_button "Update User"
+
+      expect(page).to have_content("Username has already been taken")
+
     end
   end
 
