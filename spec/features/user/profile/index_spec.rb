@@ -34,6 +34,10 @@ RSpec.describe 'USER PROFILE INDEX PAGE' do
       expect(page).to have_link("Billing")
       expect(page).to have_link("Profile")
     end
+
+    xit 'will see todays date in their overview' do
+
+    end
   end
 
 end
