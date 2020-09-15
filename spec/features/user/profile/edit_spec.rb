@@ -41,6 +41,31 @@ RSpec.describe 'USER PROFILE EDIT PAGE' do
       expect(page).to have_selector("input[value='#{@user.state}']")
       expect(page).to have_selector("input[value='80102']")
     end
+
+    it 'recives and error when leaving an blank field' do
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+
+      visit '/user/profile/edit'
+
+      fill_in :user_username, with: 'user'
+      fill_in :user_first_name, with: 'Joe'
+      fill_in :user_last_name, with: 'James'
+      fill_in :user_address, with: ' '
+      fill_in :user_city, with: 'Boulder'
+      fill_in :user_state, with: 'CO'
+      fill_in :user_zip, with: 80102
+
+      click_button "Update User"
+
+      expect(page).to have_content('Error: One or more fields was empty')
+
+      expect(page).to have_selector("input[value='#{@user.username}']")
+      expect(page).to have_selector("input[value='#{@user.first_name}']")
+      expect(page).to have_selector("input[value='#{@user.last_name}']")
+      expect(page).to have_selector("input[value='Boulder']")
+      expect(page).to have_selector("input[value='#{@user.state}']")
+      expect(page).to have_selector("input[value='80102']")
+    end
   end
 
 end
