@@ -18,6 +18,6 @@ Rails.application.routes.draw do
 
   namespace :user do
     get '/profile', to: 'profile#index'
-    get '/profile/edit', to: 'profile#edit'
+    get '/profile/info', to: 'profile#show'
   end
 end

@@ -4,7 +4,7 @@ class User::ProfileController < User::BaseController
   end
 
   def show
-
+    @user = current_user
   end
 
   def edit
