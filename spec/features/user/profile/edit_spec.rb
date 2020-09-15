@@ -92,8 +92,6 @@ RSpec.describe 'USER PROFILE EDIT PAGE' do
       click_button "Update User"
 
       expect(page).to have_content("Username has already been taken")
-
     end
   end
-
 end
