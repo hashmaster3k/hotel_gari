@@ -311,6 +311,11 @@ a.navbar-link:active {
   padding: 15px;
 }
 
+.welcome-message h1 {
+  margin: 0px;
+  align-self: center;
+}
+
 .logout-button {
   border: solid;
   background: none;
@@ -363,4 +368,27 @@ a.navbar-link:active {
 .pass-box {
   align-self: center;
   text-align: center;
+}
+
+.weather-stats {
+  padding: 15px;
+  background-color: #a6a9a4;
+  text-align: center;
+}
+
+.ws-title {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.ws-data {
+  background-color: #d2d5ce;
+  margin: 5px;
+}
+
+.ws-credit {
+  font-weight: 100;
+  font-size: smaller;
+  margin-top: 20px;
 }

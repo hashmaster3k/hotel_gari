@@ -1,10 +1,10 @@
 class User::ProfileController < User::BaseController
   def index
     @date = Date.today
+    @weather = weather_api
   end
 
   def show
-
   end
 
   def edit_info
@@ -45,5 +45,11 @@ class User::ProfileController < User::BaseController
                                  :city,
                                  :state,
                                  :zip)
+  end
+
+  def weather_api
+    response = Faraday.get "https://api.weatherbit.io/v2.0/current?city=Denver,CO&key=740a67e52c784d82ad507f463d022391"
+    body = JSON(response.body)
+    body['data'].first
   end
 end

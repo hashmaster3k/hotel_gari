@@ -5,11 +5,41 @@
   <article class='profile-main'>
     <%= render partial: "nav_profile" %>
     <section class='profile-content'>
-
-      <div class="date">
-        <%= @date.strftime("%A %B %d, %Y") %>
+      <div class="weather">
+        <h3>Weather Forcast for <%= @date.strftime("%A %B %d, %Y") %></h3>
+        <div class="weather-stats">
+          <div class="row">
+            <div class="col ws-title">
+              Current Temperature
+            </div>
+            <div class="col ws-title">
+              Feels Like
+            </div>
+            <div class="col ws-title">
+              Cloud Coverage Percentage
+            </div>
+            <div class="col ws-title">
+              Description
+            </div>
+          </div>
+          <div class="row">
+            <div class="col ws-data">
+              <%= @weather['temp'] %> °C
+            </div>
+            <div class="col ws-data">
+              <%= @weather['app_temp'] %> °C
+            </div>
+            <div class="col ws-data">
+              <%= @weather['clouds'] %>%
+            </div><div class="col ws-data">
+              <%= @weather['weather']['description'] %>
+            </div>
+          </div>
+          <div class="row-* ws-credit">
+            Brought to you by Weathbit.io
+          </div>
+        </div>
       </div>
-
     </section>
   </article>
 </div>
