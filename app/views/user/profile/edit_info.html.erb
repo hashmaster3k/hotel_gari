@@ -1,0 +1,49 @@
+<div class='profile-container'>
+  <div class='welcome-message'>
+    <%= render partial: "header" %>
+  </div>
+  <article class='profile-main'>
+    <%= render partial: "nav_profile" %>
+    <section class='profile-content'>
+      <%= form_for @user, url: '/user/profile/' do |f| %>
+        <div class="row">
+          <div class="col">
+            <%= f.label 'Username/email' %><br>
+            <%= f.text_field :username, required: true %><br><br>
+          </div>
+          <div class="col">
+            <%= f.label 'First Name' %><br>
+            <%= f.text_field :first_name, required: true %><br><br>
+          </div>
+          <div class="col">
+            <%= f.label 'Last Name' %><br>
+            <%= f.text_field :last_name, required: true %><br><br>
+          </div>
+          <div class="col">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <%= f.label 'Address' %><br>
+            <%= f.text_field :address, required: true %><br><br>
+          </div>
+          <div class="col">
+            <%= f.label 'City' %><br>
+            <%= f.text_field :city, required: true %><br><br>
+          </div>
+          <div class="col">
+            <%= f.label 'State' %><br>
+            <%= f.text_field :state, required: true %><br><br>
+          </div>
+          <div class="col">
+            <%= f.label 'Zip' %><br>
+            <%= f.text_field :zip, required: true %><br><br>
+          </div>
+        </div>
+        <div class="row">
+          <%= f.submit %>
+        </div>
+      <% end %>
+    </section>
+  </article>
+</div>

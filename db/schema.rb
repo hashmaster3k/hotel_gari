@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_05_164014) do
+ActiveRecord::Schema.define(version: 2020_09_07_210046) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,18 @@ ActiveRecord::Schema.define(version: 2020_09_05_164014) do
     t.boolean "river_view", default: false, null: false
     t.boolean "is_rented", default: false, null: false
     t.integer "renter_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.integer "role", default: 0
+    t.string "username"
+    t.string "password_digest"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
   end
 
 end

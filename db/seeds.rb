@@ -8,6 +8,7 @@
 
 Room.destroy_all
 Activity.destroy_all
+User.destroy_all
 
 Room.create(beds: 1, price: 99.99)
 Room.create(beds: 1, price: 99.99)
@@ -61,3 +62,22 @@ Activity.create(name: 'Taste School',
                 capacity: 5,
                 start_times: ['3:00', '4:00', '5:00', '6:00'],
                 image: 'activity_3.jpg')
+
+User.create(role: 1,
+            username: 'admin',
+            password: '123',
+            first_name: 'Rick',
+            last_name: 'Steves',
+            address: '1322 Admin Rd',
+            city: 'Denver',
+            state: 'CO',
+            zip: 80210)
+
+User.create!(username: 'user',
+            password: '123',
+            first_name: 'Joe',
+            last_name: 'James',
+            address: '1382 JJ Drive',
+            city: 'Denver',
+            state: 'CO',
+            zip: 80210)
