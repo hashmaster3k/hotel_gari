@@ -22,14 +22,16 @@ class User::ProfileController < User::BaseController
   end
 
   def edit_password
+
   end
 
   def update_password
-    if current_user.update_attribute(:password, params[:password])
+    if params[:password].split.count > 0
+      current_user.update_attribute(:password, params[:password])
       flash[:success] = "Password successfully changed!"
       redirect_to user_profile_info_path
     else
-      flash[:error] = current_user.errors.full_messages.first
+      flash[:error] = "Password cannot be blank"
       redirect_to user_profile_edit_path
     end
   end
