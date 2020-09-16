@@ -391,4 +391,15 @@ a.navbar-link:active {
   font-weight: 100;
   font-size: smaller;
   margin-top: 20px;
+  letter-spacing: 3px;
+}
+
+.demo-login-info {
+  display:flex;
+  margin: 15px;
+  margin-left: 90px;
+  padding: 30px;
+  display: inline-block;
+  background-color: #ffffffd9;
+  font-weight: bold;
 }
