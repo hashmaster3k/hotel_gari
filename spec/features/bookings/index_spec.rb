@@ -62,5 +62,16 @@ RSpec.describe 'BOOKINGS INDEX PAGE' do
         expect(page).to have_button("BOOK")
       end
     end
+
+    it 'cannot book without being logged in or registered' do
+      visit '/bookings'
+
+      within "#room-#{@room_1.id}" do
+        click_button "BOOK"
+      end
+
+      expect(current_path).to eq('/bookings')
+      expect(page).to have_content('You must be logged in or register to continue')
+    end
   end
 end

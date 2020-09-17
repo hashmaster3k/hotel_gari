@@ -54,7 +54,7 @@
               <p><%= room.description %></p>
             </div>
             <div class="room-info-bottom">
-              <%= button_to 'BOOK', '', class: 'book-button'%>
+              <%= button_to 'BOOK', '/bookings/new', method: :get, class: 'book-button'%>
             </div>
           </div>
         </div>

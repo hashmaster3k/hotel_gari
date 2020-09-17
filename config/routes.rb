@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   get '/bookings', to: 'bookings#index'
   post '/bookings', to: 'bookings#index'
+  get '/bookings/new', to: 'bookings#new'
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
@@ -24,5 +25,7 @@ Rails.application.routes.draw do
     patch '/profile', to: 'profile#update_info'
     get '/profile/password', to: 'profile#edit_password'
     patch '/profile/password', to: 'profile#update_password'
+
+    get '/bookings/new', to: 'bookings#new'
   end
 end
