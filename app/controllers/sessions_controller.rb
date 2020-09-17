@@ -9,16 +9,13 @@ class SessionsController < ApplicationController
         session[:user_id] = user.id
         redirect_to user_profile_path
       else
-        flash[:error] = "Password is incorrect."
+        flash.now[:error] = "Password is incorrect."
         render :new
       end
     else
-      flash[:error] = "Username is incorrect or does not exist."
+      flash.now[:error] = "Username is incorrect or does not exist."
       render :new
     end
-
-
-
   end
 
   def destroy
