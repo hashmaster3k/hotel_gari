@@ -1,0 +1,64 @@
+<article class='container-main'>
+  <div class="search-box-container">
+    <section class='search-box-booking'>
+      <%= form_tag '/bookings/search', method: :post do %>
+      <div class="row">
+        <div class="col">
+          <%= label_tag 'Check-in' %><br>
+          <%= date_field :check_in, nil, min: Date.today %><br><br>
+        </div>
+        <div class="col">
+          <%= label_tag 'Check-out' %><br>
+          <%= date_field :check_out, nil, min: Date.today  %><br><br>
+        </div>
+        <div class="col">
+          <div class="row">
+            <div class="col">
+              <%= label_tag 'Adults' %><br>
+              <%= select_tag(:adults, options_for_select([['1',  '1'], ['2',  '2'], ['3+', '3']]), class: 'dp-selector') %>
+            </div>
+            <div class="col">
+              <%= label_tag 'Children' %><br>
+              <%= select_tag(:children, options_for_select([['0',  '0'], ['1',  '1'], ['2+', '2']]), class: 'dp-selector')  %>
+            </div>
+            <div class="col">
+              <%= label_tag 'River View' %><br>
+              <%= select_tag(:river_view, options_for_select([['Yes',  true], ['No',  false]]), class: 'dp-selector')  %>
+            </div>
+          </div>
+        </div>
+
+        <div class="col sb-submit">
+            <%= submit_tag 'FIND VILLA', class: 'submit-booking' %>
+        </div>
+      </div>
+      <% end %>
+    </section>
+  </div>
+
+  <section class='container-sub-booking'>
+    <div class="amen-header">
+      <div class='amen-title'>
+        <h3>Current Available rooms</h3>
+      </div>
+    </div>
+    <div class='rooms-content'>
+      <% @rooms.each do |room| %>
+        <div class= 'room-box' id="room-<%= room.id %>">
+          <div class="room-image">
+            <%= image_tag room.image %>
+          </div>
+          <div class="room-info">
+            <div class="room-info-top">
+              <h5><%= room.beds %> Bed Villa <%= "| River View" if room.river_view %> | $<%= room.price %> </h5>
+              <p><%= room.description %></p>
+            </div>
+            <div class="room-info-bottom">
+              <%= button_to 'BOOK', '', class: 'book-button'%>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </section>
+</article>

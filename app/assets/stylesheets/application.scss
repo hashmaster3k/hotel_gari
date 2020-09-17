@@ -293,7 +293,6 @@ a.navbar-link:active {
   margin: 5px;
 }
 
-
 .names-email {
   display: flex;
 }
@@ -402,4 +401,73 @@ a.navbar-link:active {
   display: inline-block;
   background-color: #ffffffd9;
   font-weight: bold;
+}
+
+.search-box-container {
+  margin: 15px;
+  padding: 15px;
+  background-color: #ffffff82;
+}
+
+.search-box-booking {
+  padding: 15px;
+  background-color: #d2d5ce;
+  text-align: center;
+}
+
+.sb-submit {
+  place-self: center;
+}
+
+.submit-booking, .book-button {
+  background: none;
+  border: solid;
+  padding: 5px;
+  font-weight: 400;
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+}
+
+.dp-selector {
+  border: none;
+}
+
+.container-sub-booking {
+  background-color: #ffffff82;
+  color: black;
+  margin: 15px;
+  padding: 15px;
+}
+
+.room-image {
+  width: 30%;
+  height: auto;
+}
+
+.rooms-content {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.room-box {
+  display: flex;
+  padding: 15px;
+  margin-bottom: 15px;
+  background-color: #d2d5ce;
+}
+
+.room-info {
+  padding: 15px;
+  width: 100%;
+  height: auto;
+  padding-bottom: 0px;
+  position: relative;
+}
+
+.room-info-bottom {
+  text-align: end;
+  width: 98%;
+  position: absolute;
+  bottom: 0;
 }

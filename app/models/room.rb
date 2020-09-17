@@ -1,5 +1,5 @@
 class Room < ApplicationRecord
-  validates_presence_of :beds, :price
+  validates_presence_of :beds, :price, :image, :description
 
   def self.total
     Room.count
@@ -19,5 +19,9 @@ class Room < ApplicationRecord
 
   def self.average_cost
     Room.average(:price).to_f
+  end
+
+  def self.available_rooms
+    Room.where(is_rented: false)
   end
 end
