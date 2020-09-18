@@ -10,6 +10,10 @@ RSpec.describe Room, type: :model do
     it {should validate_presence_of :description }
   end
 
+  describe 'relationships' do
+    it { should have_many :reservations }
+  end
+
   before :each do
     Room.create!(image: '1.jpg', beds: 1, price: 99.99, description: 'Wow')
     Room.create!(image: '2.jpg', beds: 1, price: 119.99, description: 'Wee', river_view: true)

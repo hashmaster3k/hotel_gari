@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
   enum role: %w(user admin)
 
+  has_many :reservations
+
   def full_name
     "#{first_name} #{last_name}"
   end

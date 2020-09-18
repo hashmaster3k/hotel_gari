@@ -15,6 +15,10 @@ RSpec.describe User do
     it { should validate_uniqueness_of :username }
   end
 
+  describe 'relationships' do
+    it { should have_many :reservations }
+  end
+
   describe 'instance methods'do
     it 'returns full name' do
       user = User.create!(username: 'user',

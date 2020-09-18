@@ -1,6 +1,8 @@
 class Room < ApplicationRecord
   validates_presence_of :beds, :price, :image, :description
 
+  has_many :reservations
+
   def self.total
     Room.count
   end
