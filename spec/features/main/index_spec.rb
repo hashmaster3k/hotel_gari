@@ -25,8 +25,7 @@ RSpec.describe 'MAIN INDEX PAGE' do
     within '.search-box'do
       expect(page).to have_content('Check-in')
       expect(page).to have_content('Check-out')
-      expect(page).to have_content('Adults')
-      expect(page).to have_content('Children')
+      expect(page).to have_content('Guests')
     end
   end
 end

@@ -5,9 +5,8 @@ class CreateReservations < ActiveRecord::Migration[5.2]
       t.references :room, foreign_key: true
       t.date :check_in
       t.date :check_out
-      t.integer :adults
-      t.integer :children
-      t.string :status, default: 'active'
+      t.integer :guests
+      t.integer :status, default: 0
       t.timestamps
     end
   end

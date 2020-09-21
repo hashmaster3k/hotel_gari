@@ -3,8 +3,7 @@ class BookingsController < ApplicationController
     if params[:commit]
       check_in = convert_to_date(params[:check_in])
       check_out = convert_to_date(params[:check_out])
-      @rooms = Room.available_rooms_filtered(check_in, check_out, params[:adults], params[:children], params[:river_view])
-      #@rooms = Room.available_rooms_within_dates(check_in, check_out)
+      @rooms = Room.available_rooms_filtered(check_in, check_out, params[:guests], params[:river_view])
     else
       @rooms = Room.available_rooms
     end

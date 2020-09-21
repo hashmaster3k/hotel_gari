@@ -28,9 +28,8 @@ ActiveRecord::Schema.define(version: 2020_09_18_133643) do
     t.bigint "room_id"
     t.date "check_in"
     t.date "check_out"
-    t.integer "adults"
-    t.integer "children"
-    t.string "status", default: "active"
+    t.integer "guests"
+    t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["room_id"], name: "index_reservations_on_room_id"
@@ -38,13 +37,13 @@ ActiveRecord::Schema.define(version: 2020_09_18_133643) do
   end
 
   create_table "rooms", force: :cascade do |t|
+    t.string "description"
     t.integer "beds"
     t.float "price"
     t.boolean "river_view", default: false, null: false
     t.boolean "is_rented", default: false, null: false
-    t.integer "renter_id"
     t.string "image"
-    t.string "description"
+    t.integer "renter_id"
   end
 
   create_table "users", force: :cascade do |t|

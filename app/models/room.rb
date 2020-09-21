@@ -27,7 +27,7 @@ class Room < ApplicationRecord
     Room.where(is_rented: false)
   end
 
-  def self.available_rooms_filtered(date_check_in, date_check_out, num_adults, num_children, view)
+  def self.available_rooms_filtered(date_check_in, date_check_out, num_guests, view)
     available_rooms_within_dates(date_check_in, date_check_out).where(river_view: view)
   end
 

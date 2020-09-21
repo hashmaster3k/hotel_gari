@@ -21,14 +21,12 @@ RSpec.describe 'BOOKINGS INDEX PAGE' do
     @reservation_1 = @user.reservations.create!(room_id: @room_1.id,
                                                 check_in: Date.new(2020, 12, 1),
                                                 check_out: Date.new(2020, 12, 5),
-                                                adults: 1,
-                                                children: 0)
+                                                guests: 1)
 
     @reservation_2 = @user.reservations.create!(room_id: @room_3.id,
                                                 check_in: Date.new(2020, 12, 23),
                                                 check_out: Date.new(2020, 12, 26),
-                                                adults: 1,
-                                                children: 0)
+                                                guests: 1)
   end
 
   describe 'a visitor' do
@@ -55,8 +53,7 @@ RSpec.describe 'BOOKINGS INDEX PAGE' do
       within '.search-box-booking'do
         expect(page).to have_content('Check-in')
         expect(page).to have_content('Check-out')
-        expect(page).to have_content('Adults')
-        expect(page).to have_content('Children')
+        expect(page).to have_content('Guests')
         expect(page).to have_button('FIND VILLA')
       end
     end
@@ -97,7 +94,30 @@ RSpec.describe 'BOOKINGS INDEX PAGE' do
       end
     end
 
-    it 'displays only available rooms when searching through specific dates' do
+    it 'displays available rooms when searching through specific dates' do
+      visit '/bookings'
+
+      fill_in 'Check-in', with: '2020-12-03'
+      fill_in 'Check-out', with: '2020-12-06'
+      select 'No', from: :river_view
+      click_button "FIND VILLA"
+
+      expect(current_path).to eq('/bookings')
+
+      within "#room-#{@room_3.id}" do
+        expect(page).to have_xpath("//img['#{@room_3.image}']")
+        expect(page).to have_content("#{@room_3.beds} Bed Villa")
+        expect(page).to have_content(@room_1.description)
+        expect(page).to have_content(@room_3.price)
+        expect(page).to have_button("BOOK")
+      end
+
+      expect(page).to_not have_css("#room-#{@room_1.id}") # room is taken during that date range
+      expect(page).to_not have_css("#room-#{@room_2.id}") # has river view
+      expect(page).to_not have_css("#room-#{@room_4.id}") # has river view
+    end
+
+    it 'displays available rooms matching rooms to number of guests' do
       visit '/bookings'
 
       fill_in 'Check-in', with: '2020-12-03'

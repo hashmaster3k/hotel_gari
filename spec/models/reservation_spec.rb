@@ -6,8 +6,7 @@ RSpec.describe Reservation, type: :model do
   describe 'validations' do
     it {should validate_presence_of :check_in }
     it {should validate_presence_of :check_out }
-    it {should validate_presence_of :adults }
-    it {should validate_presence_of :children }
+    it {should validate_presence_of :guests }
     it {should validate_presence_of :status }
   end
 
@@ -31,8 +30,7 @@ RSpec.describe Reservation, type: :model do
     user.reservations.create!(room_id: room.id,
                               check_in: Date.today,
                               check_out: Date.today,
-                              adults: 1,
-                              children: 0)
+                              guests: 1)
 
     expect(Reservation.count).to eq(1)
   end
