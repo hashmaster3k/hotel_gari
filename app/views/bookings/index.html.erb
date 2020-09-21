@@ -1,14 +1,14 @@
 <article class='container-main'>
   <div class="search-box-container">
     <section class='search-box-booking'>
-      <%= form_tag '/bookings', method: :post do %>
+      <%= form_tag '/bookings', method: :get do %>
       <div class="row">
         <div class="col">
-          <%= label_tag 'Check-in' %><br>
+          <%= label_tag 'check_in[]', 'Check-in' %><br>
           <%= date_field :check_in, nil, min: Date.today %><br><br>
         </div>
         <div class="col">
-          <%= label_tag 'Check-out' %><br>
+          <%= label_tag 'check_out[]', 'Check-out' %><br>
           <%= date_field :check_out, nil, min: Date.today  %><br><br>
         </div>
         <div class="col">

@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   get '/amenities', to: 'amenities#index'
 
   get '/bookings', to: 'bookings#index'
-  post '/bookings', to: 'bookings#index'
   get '/bookings/new', to: 'bookings#new'
 
   get '/login', to: 'sessions#new'
