@@ -2,10 +2,10 @@
   <section class='search-box'>
     <%= form_tag '/bookings/search', method: :post do %>
       <%= label_tag 'Check-in' %><br>
-      <%= date_field :check_in, nil, min: Date.today %><br><br>
+      <%= date_field :check_in, nil, min: Date.today, required: true %><br><br>
 
       <%= label_tag 'Check-out' %><br>
-      <%= date_field :check_out, nil, min: Date.today  %><br><br>
+      <%= date_field :check_out, nil, min: Date.today, required: true  %><br><br>
 
       <div class='search-box-dropdowns'>
         <div class='sbdp-adults'>

@@ -5,11 +5,11 @@
       <div class="row">
         <div class="col">
           <%= label_tag 'check_in[]', 'Check-in' %><br>
-          <%= date_field :check_in, nil, min: Date.today %><br><br>
+          <%= date_field :check_in, nil, min: Date.today, required: true %><br><br>
         </div>
         <div class="col">
           <%= label_tag 'check_out[]', 'Check-out' %><br>
-          <%= date_field :check_out, nil, min: Date.today  %><br><br>
+          <%= date_field :check_out, nil, min: Date.today, required: true  %><br><br>
         </div>
         <div class="col">
           <div class="row">
@@ -33,11 +33,6 @@
   </div>
 
   <section class='container-sub-booking'>
-    <div class="amen-header">
-      <div class='amen-title'>
-        <h3>Available rooms matching critera: </h3>
-      </div>
-    </div>
     <div class='rooms-content'>
       <% @rooms.each do |room| %>
         <div class= 'room-box' id="room-<%= room.id %>">
