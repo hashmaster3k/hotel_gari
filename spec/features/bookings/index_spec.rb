@@ -8,6 +8,7 @@ RSpec.describe 'BOOKINGS INDEX PAGE' do
     @room_2 = Room.create!(image: 'carousel_3.jpg', beds: 1, price: 119.99, description: 'wow', river_view: true)
     @room_3 = Room.create!(image: 'carousel_6.jpg', beds: 2, price: 129.99, description: 'wow')
     @room_4 = Room.create!(image: 'carousel_6.jpg', beds: 2, price: 149.99, description: 'wow', river_view: true)
+    @room_5 = Room.create!(image: 'carousel_6.jpg', beds: 2, price: 149.99, description: 'wow', river_view: true)
 
     @user = User.create!(username: 'user',
                         password: '123',
@@ -120,24 +121,20 @@ RSpec.describe 'BOOKINGS INDEX PAGE' do
     it 'displays available rooms matching rooms to number of guests' do
       visit '/bookings'
 
-      fill_in 'Check-in', with: '2020-12-03'
-      fill_in 'Check-out', with: '2020-12-06'
-      select 'No', from: :river_view
+      fill_in 'Check-in', with: '2020-12-06'
+      fill_in 'Check-out', with: '2020-12-07'
+      select '2', from: :guests
+      select 'Yes', from: :river_view
       click_button "FIND VILLA"
 
       expect(current_path).to eq('/bookings')
 
-      within "#room-#{@room_3.id}" do
-        expect(page).to have_xpath("//img['#{@room_3.image}']")
-        expect(page).to have_content("#{@room_3.beds} Bed Villa")
-        expect(page).to have_content(@room_1.description)
-        expect(page).to have_content(@room_3.price)
-        expect(page).to have_button("BOOK")
-      end
+      expect(page).to_not have_css("#room-#{@room_1.id}")
+      expect(page).to_not have_css("#room-#{@room_2.id}")
+      expect(page).to_not have_css("#room-#{@room_3.id}")
+      expect(page).to have_css("#room-#{@room_4.id}")
+      expect(page).to have_css("#room-#{@room_4.id}")
 
-      expect(page).to_not have_css("#room-#{@room_1.id}") # room is taken during that date range
-      expect(page).to_not have_css("#room-#{@room_2.id}") # has river view
-      expect(page).to_not have_css("#room-#{@room_4.id}") # has river view
     end
   end
 end

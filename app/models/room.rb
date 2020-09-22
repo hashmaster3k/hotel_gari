@@ -28,7 +28,7 @@ class Room < ApplicationRecord
   end
 
   def self.available_rooms_filtered(date_check_in, date_check_out, num_guests, view)
-    available_rooms_within_dates(date_check_in, date_check_out).where(river_view: view)
+    available_rooms_within_dates(date_check_in, date_check_out).where(river_view: view).where("beds >= #{num_guests.to_i}")
   end
 
   def self.available_rooms_within_dates(date_check_in, date_check_out)
