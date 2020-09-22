@@ -5,21 +5,37 @@
       <div class="row">
         <div class="col">
           <%= label_tag 'check_in[]', 'Check-in' %><br>
-          <%= date_field :check_in, nil, min: Date.today, required: true %><br><br>
+          <% if current_search %>
+            <%= date_field :check_in, nil, min: Date.today, required: true, value: current_search[:check_in]%><br><br>
+          <% else %>
+            <%= date_field :check_in, nil, min: Date.today, required: true%><br><br>
+          <% end %>
         </div>
         <div class="col">
           <%= label_tag 'check_out[]', 'Check-out' %><br>
-          <%= date_field :check_out, nil, min: Date.today, required: true  %><br><br>
+          <% if current_search %>
+            <%= date_field :check_out, nil, min: Date.today, required: true, value: current_search[:check_out] %><br><br>
+          <% else %>
+            <%= date_field :check_out, nil, min: Date.today, required: true %><br><br>
+          <% end %>
         </div>
         <div class="col">
           <div class="row">
             <div class="col">
               <%= label_tag 'Guests' %><br>
-              <%= select_tag(:guests, options_for_select([['1',  '1'], ['2+',  '2']]), class: 'dp-selector') %>
+              <% if current_search %>
+                <%= select_tag(:guests, options_for_select([['1',  '1'], ['2+',  '2']], current_search[:guests]), class: 'dp-selector') %>
+              <% else %>
+                <%= select_tag(:guests, options_for_select([['1',  '1'], ['2+',  '2']]), class: 'dp-selector') %>
+              <% end %>
             </div>
             <div class="col">
               <%= label_tag 'River View' %><br>
-              <%= select_tag(:river_view, options_for_select([['Yes',  true], ['No',  false]]), class: 'dp-selector')  %>
+              <% if current_search %>
+                <%= select_tag(:river_view, options_for_select([['Yes',  true], ['No',  false]], current_search[:view]), class: 'dp-selector')  %>
+              <% else %>
+                <%= select_tag(:river_view, options_for_select([['Yes',  true], ['No',  false]]), class: 'dp-selector') %>
+              <% end %>
             </div>
           </div>
         </div>
@@ -32,24 +48,27 @@
     </section>
   </div>
 
-  <section class='container-sub-booking'>
-    <div class='rooms-content'>
-      <% @rooms.each do |room| %>
-        <div class= 'room-box' id="room-<%= room.id %>">
-          <div class="room-image">
-            <%= image_tag room.image %>
-          </div>
-          <div class="room-info">
-            <div class="room-info-top">
-              <h5><%= room.beds %> Bed Villa <%= "| River View" if room.river_view %> | $<%= room.price %> </h5>
-              <p><%= room.description %></p>
+
+  <% if current_search %>
+    <section class='container-sub-booking'>
+      <div class='rooms-content'>
+        <% @rooms.each do |room| %>
+          <div class= 'room-box' id="room-<%= room.id %>">
+            <div class="room-image">
+              <%= image_tag room.image %>
             </div>
-            <div class="room-info-bottom">
-              <%= button_to 'BOOK', '/bookings/new', method: :get, class: 'book-button'%>
+            <div class="room-info">
+              <div class="room-info-top">
+                <h5><%= room.beds %> Bed Villa <%= "| River View" if room.river_view %> | $<%= room.price %> </h5>
+                <p><%= room.description %></p>
+              </div>
+              <div class="room-info-bottom">
+                <%= button_to 'BOOK', '/bookings/new', method: :get, class: 'book-button'%>
+              </div>
             </div>
           </div>
-        </div>
-      <% end %>
-    </div>
-  </section>
+        <% end %>
+      </div>
+    </section>
+  <% end %>
 </article>
