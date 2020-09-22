@@ -1,22 +1,6 @@
 <article class='container-main'>
-  <section class='search-box'>
-    <%= form_tag '/bookings/search', method: :post do %>
-      <%= label_tag 'Check-in' %><br>
-      <%= date_field :check_in, nil, min: Date.today, required: true %><br><br>
+  <section class='empty'>
 
-      <%= label_tag 'Check-out' %><br>
-      <%= date_field :check_out, nil, min: Date.today, required: true  %><br><br>
-
-      <div class='search-box-dropdowns'>
-        <div class='sbdp-adults'>
-          <%= label_tag 'Guests' %><br>
-          <%= select_tag(:guests, options_for_select([['1',  '1'], ['2',  '2'], ['3+', '3']])) %>
-        </div>
-        <div class='sbdp-submit'>
-          <%= submit_tag 'Find Room' %>
-        </div>
-      </div>
-    <% end %>
   </section>
   <section class='container-sub'>
     <div class='content'>
