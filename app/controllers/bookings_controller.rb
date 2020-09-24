@@ -1,21 +1,11 @@
 class BookingsController < ApplicationController
   def index
     if params[:commit]
-      create_search_session
-      check_in = convert_to_date(params[:check_in])
-      check_out = convert_to_date(params[:check_out])
-      @rooms = Room.available_rooms_filtered(check_in, check_out, params[:guests], params[:river_view])
+      new_search
+    elsif current_search
+      old_search
     else
-      if current_search
-        check_in = convert_to_date(current_search["check_in"])
-        check_out = convert_to_date(current_search["check_out"])
-        @rooms = Room.available_rooms_filtered(check_in,
-                                               check_out,
-                                               current_search["guests"],
-                                               current_search["view"])
-      else
-        @rooms = Room.where(is_rented: false)
-      end
+      @rooms = Room.where(is_rented: false)
     end
   end
 
@@ -29,6 +19,22 @@ class BookingsController < ApplicationController
   end
 
   private
+  def new_search
+    create_search_session
+    check_in = convert_to_date(params[:check_in])
+    check_out = convert_to_date(params[:check_out])
+    @rooms = Room.available_rooms_filtered(check_in, check_out, params[:guests], params[:river_view])
+  end
+
+  def old_search
+    check_in = convert_to_date(current_search["check_in"])
+    check_out = convert_to_date(current_search["check_out"])
+    @rooms = Room.available_rooms_filtered(check_in,
+                                           check_out,
+                                           current_search["guests"],
+                                           current_search["view"])
+  end
+
   def create_search_session
     session[:search_critera] = {check_in: params[:check_in],
                                 check_out: params[:check_out],
