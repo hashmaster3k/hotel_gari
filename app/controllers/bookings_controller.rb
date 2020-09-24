@@ -13,6 +13,8 @@ class BookingsController < ApplicationController
                                                check_out,
                                                current_search["guests"],
                                                current_search["view"])
+      else
+        @rooms = Room.where(is_rented: false)
       end
     end
   end

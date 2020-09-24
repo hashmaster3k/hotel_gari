@@ -50,6 +50,43 @@ RSpec.describe 'BOOKINGS INDEX PAGE' do
       expect(current_path).to eq('/bookings')
       expect(page).to have_content('You must be logged in or register to continue')
     end
+
+    it 'sees all currently available rooms by default' do
+      visit '/bookings'
+
+      within "#room-#{@room_1.id}" do
+        expect(page).to have_xpath("//img['#{@room_1.image}']")
+        expect(page).to have_content("#{@room_1.beds} Bed Villa")
+        expect(page).to have_content(@room_1.description)
+        expect(page).to have_content(@room_1.price)
+        expect(page).to have_button("BOOK")
+      end
+
+      within "#room-#{@room_2.id}" do
+        expect(page).to have_xpath("//img['#{@room_2.image}']")
+        expect(page).to have_content("#{@room_2.beds} Bed Villa | River View")
+        expect(page).to have_content(@room_1.description)
+        expect(page).to have_content(@room_2.price)
+        expect(page).to have_button("BOOK")
+      end
+
+      within "#room-#{@room_3.id}" do
+        expect(page).to have_xpath("//img['#{@room_3.image}']")
+        expect(page).to have_content("#{@room_3.beds} Bed Villa")
+        expect(page).to have_content(@room_1.description)
+        expect(page).to have_content(@room_3.price)
+        expect(page).to have_button("BOOK")
+      end
+
+      within "#room-#{@room_4.id}" do
+        expect(page).to have_xpath("//img['#{@room_4.image}']")
+        expect(page).to have_content("#{@room_3.beds} Bed Villa | River View")
+        expect(page).to have_content(@room_1.description)
+        expect(page).to have_content("$#{@room_4.price}")
+        expect(page).to have_button("BOOK")
+      end
+    end
+
   end
 
   describe 'search function' do
