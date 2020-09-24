@@ -25,13 +25,13 @@ Room.create(image: 'carousel_6.jpg',
             price: 99.99,
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.')
 
-Room.create(image: 'carousel_6.jpg',
+room_4 = Room.create(image: 'carousel_6.jpg',
             beds: 1,
             price: 119.99,
             river_view: true,
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.')
 
-Room.create(image: 'carousel_6.jpg',
+room_5 = Room.create(image: 'carousel_6.jpg',
             beds: 1,
             price: 119.99,
             river_view: true,
@@ -43,7 +43,7 @@ Room.create(image: 'carousel_3.jpg',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.')
 
 Room.create(image: 'carousel_3.jpg',
-            beds: 2, 
+            beds: 2,
             price: 129.99,
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.')
 
@@ -117,7 +117,7 @@ User.create(role: 1,
             state: 'CO',
             zip: 80210)
 
-User.create!(username: 'user',
+user = User.create(username: 'user',
             password: '123',
             first_name: 'Joe',
             last_name: 'James',
@@ -125,3 +125,13 @@ User.create!(username: 'user',
             city: 'Denver',
             state: 'CO',
             zip: 80210)
+
+user.reservations.create!(room_id: room_4.id,
+                    check_in: Date.today,
+                    check_out: Date.today,
+                    guests: 1)
+
+user.reservations.create!(room_id: room_5.id,
+                    check_in: Date.today,
+                    check_out: Date.today,
+                    guests: 1)

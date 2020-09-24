@@ -16,6 +16,6 @@ class ApplicationController < ActionController::Base
   end
 
   def current_search
-    session[:search_critera]
+    Search.new(session[:search_critera]) if session[:search_critera]
   end
 end
