@@ -38,6 +38,11 @@ RSpec.describe 'BOOKINGS INDEX PAGE' do
     it 'cannot book without being logged in or registered' do
       visit '/bookings'
 
+      fill_in 'Check-in', with: '2020-11-01'
+      fill_in 'Check-out', with: '2020-11-02'
+      select 'No', from: :river_view
+      click_button "FIND VILLA"
+
       within "#room-#{@room_1.id}" do
         click_button "BOOK"
       end
@@ -56,42 +61,6 @@ RSpec.describe 'BOOKINGS INDEX PAGE' do
         expect(page).to have_content('Check-out')
         expect(page).to have_content('Guests')
         expect(page).to have_button('FIND VILLA')
-      end
-    end
-
-    it 'lists all current available rooms by default' do
-      visit '/bookings'
-
-      within "#room-#{@room_1.id}" do
-        expect(page).to have_xpath("//img['#{@room_1.image}']")
-        expect(page).to have_content("#{@room_1.beds} Bed Villa")
-        expect(page).to have_content(@room_1.description)
-        expect(page).to have_content(@room_1.price)
-        expect(page).to have_button("BOOK")
-      end
-
-      within "#room-#{@room_2.id}" do
-        expect(page).to have_xpath("//img['#{@room_2.image}']")
-        expect(page).to have_content("#{@room_2.beds} Bed Villa | River View")
-        expect(page).to have_content(@room_1.description)
-        expect(page).to have_content(@room_2.price)
-        expect(page).to have_button("BOOK")
-      end
-
-      within "#room-#{@room_3.id}" do
-        expect(page).to have_xpath("//img['#{@room_3.image}']")
-        expect(page).to have_content("#{@room_3.beds} Bed Villa")
-        expect(page).to have_content(@room_1.description)
-        expect(page).to have_content(@room_3.price)
-        expect(page).to have_button("BOOK")
-      end
-
-      within "#room-#{@room_4.id}" do
-        expect(page).to have_xpath("//img['#{@room_4.image}']")
-        expect(page).to have_content("#{@room_3.beds} Bed Villa | River View")
-        expect(page).to have_content(@room_1.description)
-        expect(page).to have_content("$#{@room_4.price}")
-        expect(page).to have_button("BOOK")
       end
     end
 
