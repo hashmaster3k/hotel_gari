@@ -46,8 +46,10 @@ RSpec.describe 'BILLING SHOW PAGE' do
       expect(page).to have_content("Has river view? No")
       expect(page).to have_content("Check-in: #{Date.today}")
       expect(page).to have_content("Check-out: #{Date.tomorrow}")
+      expect(page).to have_content("Status: #{@res_1.status}")
       expect(page).to have_content("Price: $#{@room_1.price} per night")
       expect(page).to have_content("Total: $#{@room_1.price * 1}")
+      expect(page).to have_button("Cancel Reservation")
     end
   end
 end

@@ -3,22 +3,16 @@
     <%= form_for @user do |f| %>
     <div class="row">
       <div class="col">
-        <%= f.label 'Username/email' %><br>
-        <%= f.text_field :username, required: true %><br><br>
-      </div>
-      <div class="col">
-        <%= f.label 'Password' %><br>
-        <%= f.password_field :password, required: true %><br><br>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
         <%= f.label 'First Name' %><br>
         <%= f.text_field :first_name, required: true %><br><br>
       </div>
       <div class="col">
         <%= f.label 'Last Name' %><br>
         <%= f.text_field :last_name, required: true %><br><br>
+      </div>
+      <div class="col">
+        <%= f.label 'Phone Number' %><br>
+        <%= f.text_field :phone, required: true %><br><br>
       </div>
     </div>
     <div class="row">
@@ -30,15 +24,24 @@
           <%= f.label 'City' %><br>
           <%= f.text_field :city, required: true %><br><br>
         </div>
+        <div class="col">
+          <%= f.label 'State' %><br>
+          <%= f.text_field :state, size: 7, required: true %><br><br>
+        </div>
+        <div class="col">
+          <%= f.label 'Zip' %><br>
+          <%= f.text_field :zip, size: 8, required: true %><br><br>
+        </div>
     </div>
+    <hr>
     <div class="row">
-      <div class="col">
-        <%= f.label 'State' %><br>
-        <%= f.text_field :state, required: true %><br><br>
+      <div class="col text-center">
+        <%= f.label 'Username' %><br>
+        <%= f.text_field :username, required: true %><br><br>
       </div>
-      <div class="col">
-        <%= f.label 'Zip' %><br>
-        <%= f.text_field :zip, required: true %><br><br>
+      <div class="col text-center">
+        <%= f.label 'Password' %><br>
+        <%= f.password_field :password, required: true %><br><br>
       </div>
     </div>
     <div class="row">

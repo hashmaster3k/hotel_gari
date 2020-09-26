@@ -14,6 +14,7 @@ RSpec.describe 'BOOKINGS INDEX PAGE' do
                         password: '123',
                         first_name: 'Joe',
                         last_name: 'James',
+                        phone: '555-123-4567',
                         address: '1382 JJ Drive',
                         city: 'Denver',
                         state: 'CO',
@@ -22,12 +23,14 @@ RSpec.describe 'BOOKINGS INDEX PAGE' do
     @reservation_1 = @user.reservations.create!(room_id: @room_1.id,
                                                 check_in: Date.new(2020, 12, 1),
                                                 check_out: Date.new(2020, 12, 5),
-                                                guests: 1)
+                                                guests: 1,
+                                                total_cost: @room_1.price * 4)
 
     @reservation_2 = @user.reservations.create!(room_id: @room_3.id,
                                                 check_in: Date.new(2020, 12, 23),
                                                 check_out: Date.new(2020, 12, 26),
-                                                guests: 1)
+                                                guests: 1,
+                                                total_cost: @room_3.price * 3)
   end
 
   describe 'a visitor' do

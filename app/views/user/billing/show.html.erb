@@ -32,11 +32,12 @@
         <div class="col text-center">
           Check-in: <%= @reservation.check_in %><br>
           Check-out: <%= @reservation.check_out %><br><br>
+          Status: <%= @reservation.status %><br><br>
           Price: $<%= @reservation.price %> per night
         </div>
         <div class="col text-center">
-          <br><br>
-          <h3>Total: $<%= @reservation.total_cost %></h3>
+          <br><h3>Total: $<%= @reservation.total_cost %></h3><br>
+          <%= button_to 'Cancel Reservation' if @reservation.status != 'cancelled' %>
         </div>
       </div>
     </section>

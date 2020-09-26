@@ -8,6 +8,7 @@ RSpec.describe 'LOGIN PAGE' do
                 password: 'testing123',
                 first_name: 'Joe',
                 last_name: 'James',
+                phone: '555-123-4567',
                 address: '123 Fake St.',
                 city: 'Denver',
                 state: 'CO',

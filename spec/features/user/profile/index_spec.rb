@@ -8,6 +8,7 @@ RSpec.describe 'USER PROFILE INDEX PAGE' do
                 password: '123',
                 first_name: 'Joe',
                 last_name: 'James',
+                phone: '555-123-4567',
                 address: '1382 JJ Drive',
                 city: 'Denver',
                 state: 'CO',
@@ -39,7 +40,7 @@ RSpec.describe 'USER PROFILE INDEX PAGE' do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
 
       visit '/user/profile'
-      
+
       expect(page).to have_content(Date.today.strftime("%A %B %d, %Y"))
     end
   end
