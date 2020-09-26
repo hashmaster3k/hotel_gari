@@ -35,7 +35,7 @@ RSpec.describe 'BOOKINGS NEW PAGE' do
         click_button "BOOK"
       end
 
-      expect(current_path).to eq('/user/bookings/new')
+      expect(current_path).to eq("/user/bookings/new.#{@room_1.id}")
     end
   end
 end
