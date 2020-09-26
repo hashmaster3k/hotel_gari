@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     get '/profile/password', to: 'profile#edit_password'
     patch '/profile/password', to: 'profile#update_password'
 
-    resources :billing, only: [:index]
+    resources :billing, only: [:index, :show]
     resources :bookings, only: [:new, :create]
   end
 end

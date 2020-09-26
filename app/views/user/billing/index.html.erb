@@ -11,8 +11,8 @@
 
       <% @reservations.each do |reservation| %>
         <div id="reservation-<%= reservation.id %>" class="reservation-box">
-          <h5>Reservation #<%= reservation.id %></h5>
-          <%= link_to 'VIEW', '', class: "view-button"%>
+          <h5>Reservation #<%= reservation.id %> - <%= reservation.status %></h5>
+          <%= link_to 'VIEW', user_billing_path(reservation.id), class: "view-button"%>
         </div>
       <% end %>
 
