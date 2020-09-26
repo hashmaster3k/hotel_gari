@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
 
   def new
     if current_user
-      redirect_to new_user_booking_path(params[:room])
+      redirect_to new_user_booking_path(room: params[:room])
     else
       flash[:error] = "You must be logged in or register to continue"
       redirect_to bookings_path

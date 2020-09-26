@@ -60,7 +60,7 @@
                 <p><%= room.description %></p>
               </div>
               <div class="room-info-bottom">
-                <%= button_to 'BOOK', bookings_new_path, method: :get, class: 'book-button', params: {room: room.id} %>
+                <%= link_to 'BOOK', bookings_new_path(room: room.id), class: 'book-button' %>
               </div>
             </div>
           </div>
