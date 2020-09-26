@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2020_09_18_133643) do
     t.date "check_in"
     t.date "check_out"
     t.integer "guests"
+    t.float "total_cost"
     t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -52,6 +53,7 @@ ActiveRecord::Schema.define(version: 2020_09_18_133643) do
     t.string "password_digest"
     t.string "first_name"
     t.string "last_name"
+    t.string "phone"
     t.string "address"
     t.string "city"
     t.string "state"
