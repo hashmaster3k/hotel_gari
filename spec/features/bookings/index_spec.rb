@@ -44,7 +44,7 @@ RSpec.describe 'BOOKINGS INDEX PAGE' do
       click_button "FIND VILLA"
 
       within "#room-#{@room_1.id}" do
-        click_button "BOOK"
+        click_link "BOOK"
       end
 
       expect(current_path).to eq('/bookings')
@@ -59,7 +59,7 @@ RSpec.describe 'BOOKINGS INDEX PAGE' do
         expect(page).to have_content("#{@room_1.beds} Bed Villa")
         expect(page).to have_content(@room_1.description)
         expect(page).to have_content(@room_1.price)
-        expect(page).to have_button("BOOK")
+        expect(page).to have_link("BOOK")
       end
 
       within "#room-#{@room_2.id}" do
@@ -67,7 +67,7 @@ RSpec.describe 'BOOKINGS INDEX PAGE' do
         expect(page).to have_content("#{@room_2.beds} Bed Villa | River View")
         expect(page).to have_content(@room_1.description)
         expect(page).to have_content(@room_2.price)
-        expect(page).to have_button("BOOK")
+        expect(page).to have_link("BOOK")
       end
 
       within "#room-#{@room_3.id}" do
@@ -75,7 +75,7 @@ RSpec.describe 'BOOKINGS INDEX PAGE' do
         expect(page).to have_content("#{@room_3.beds} Bed Villa")
         expect(page).to have_content(@room_1.description)
         expect(page).to have_content(@room_3.price)
-        expect(page).to have_button("BOOK")
+        expect(page).to have_link("BOOK")
       end
 
       within "#room-#{@room_4.id}" do
@@ -83,7 +83,7 @@ RSpec.describe 'BOOKINGS INDEX PAGE' do
         expect(page).to have_content("#{@room_3.beds} Bed Villa | River View")
         expect(page).to have_content(@room_1.description)
         expect(page).to have_content("$#{@room_4.price}")
-        expect(page).to have_button("BOOK")
+        expect(page).to have_link("BOOK")
       end
     end
 
@@ -116,7 +116,7 @@ RSpec.describe 'BOOKINGS INDEX PAGE' do
         expect(page).to have_content("#{@room_3.beds} Bed Villa")
         expect(page).to have_content(@room_1.description)
         expect(page).to have_content(@room_3.price)
-        expect(page).to have_button("BOOK")
+        expect(page).to have_link("BOOK")
       end
 
       expect(page).to_not have_css("#room-#{@room_1.id}") # room is taken during that date range

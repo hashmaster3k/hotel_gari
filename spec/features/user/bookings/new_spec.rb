@@ -32,10 +32,28 @@ RSpec.describe 'BOOKINGS NEW PAGE' do
       click_button "FIND VILLA"
 
       within "#room-#{@room_1.id}" do
-        click_button "BOOK"
+        click_link "BOOK"
       end
 
-      expect(current_path).to eq("/user/bookings/new.#{@room_1.id}")
+      expect(current_path).to eq("/user/bookings/new")
+
+      within '.booking-confirm' do
+        expect(page).to have_content("Confirm Booking")
+        expect(page).to have_content("Villa ##{@room_1.id}")
+        expect(page).to have_content("Check-in: #{Date.today.strftime("%m-%d-%Y")}")
+        expect(page).to have_content("Check-out: #{Date.tomorrow.strftime("%m-%d-%Y")}")
+        expect(page).to have_content("Total nights: 1")
+        expect(page).to have_content("Price per night: $#{@room_1.price}")
+        expect(page).to have_content("Total cost: $#{@room_1.price * 1}")
+        click_button "CONFIRM"
+      end
+
+      expect(current_path).to eq('/user/billing')
+
+      within "#reservation-#{Reservation.last.id}" do
+        expect(page).to have_content("Reservation ##{Reservation.last.id}")
+        expect(page).to have_link("VIEW")
+      end
     end
   end
 end

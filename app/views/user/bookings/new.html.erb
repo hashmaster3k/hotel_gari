@@ -1,6 +1,10 @@
-<article class='container-main'>
-  <section class='container-sub-booking'>
-    <div class='rooms-content'>
+<div class='profile-container'>
+  <div class='welcome-message'>
+    <%= render partial: "/user/header" %>
+  </div>
+  <article class='profile-main'>
+    <%= render partial: "/user/nav_profile" %>
+    <section class='profile-content'>
       <div class="booking-confirm">
         <h4>Confirm Booking</h4>
 
@@ -16,6 +20,6 @@
 
         <%= button_to 'CONFIRM', user_bookings_path, params: {room: @room.id} %>
       </div>
-    </div>
-  </section>
-</article>
+    </section>
+  </article>
+</div>

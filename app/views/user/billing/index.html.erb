@@ -1,0 +1,21 @@
+<div class='profile-container'>
+  <div class='welcome-message'>
+    <%= render partial: "/user/header" %>
+  </div>
+  <article class='profile-main'>
+    <%= render partial: "/user/nav_profile" %>
+    <section class='profile-content'>
+      <div class="profile-nav-bar">
+        <h4>Reservations</h4>
+      </div>
+
+      <% @reservations.each do |reservation| %>
+        <div id="reservation-<%= reservation.id %>" class="reservation-box">
+          <h5>Reservation #<%= reservation.id %></h5>
+          <%= link_to 'VIEW', '', class: "view-button"%>
+        </div>
+      <% end %>
+
+    </section>
+  </article>
+</div>

@@ -35,8 +35,12 @@ RSpec.describe 'USER PROFILE INDEX PAGE' do
       expect(page).to have_link("Profile")
     end
 
-    xit 'will see todays date in their overview' do
+    it 'will see todays date in their overview' do
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
 
+      visit '/user/profile'
+      
+      expect(page).to have_content(Date.today.strftime("%A %B %d, %Y"))
     end
   end
 
