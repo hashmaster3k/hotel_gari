@@ -18,7 +18,7 @@
 
         Total cost: $<%= current_search.total_cost(@room.price) %><br><br>
 
-        <%= button_to 'CONFIRM', user_bookings_path, params: {room: @room.id} %>
+        <%= button_to 'CONFIRM', user_reservations_path, params: {room: @room.id} %>
       </div>
     </section>
   </article>

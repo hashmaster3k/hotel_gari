@@ -1,8 +1,8 @@
-# spec/features/user/billing/index_spec.rb
+# spec/features/user/reservations/index_spec.rb
 
 require 'rails_helper'
 
-RSpec.describe 'BILLING INDEX PAGE' do
+RSpec.describe 'USER RESERVATIONS INDEX PAGE' do
   before :each do
     @room_1 = Room.create!(image: 'carousel_3.jpg', beds: 1, price: 99.99, description: 'wow')
     @room_2 = Room.create!(image: 'carousel_3.jpg', beds: 1, price: 119.99, description: 'wow', river_view: true)
@@ -34,7 +34,7 @@ RSpec.describe 'BILLING INDEX PAGE' do
 
   describe 'a user' do
     it 'sees all their reservations, status and a link to each reservation' do
-      visit '/user/billing'
+      visit '/user/reservations'
 
       within "#reservation-#{@res_1.id}" do
         expect(page).to have_content("Reservation ##{@res_1.id} - #{@res_1.status}")

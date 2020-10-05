@@ -1,8 +1,8 @@
-# spec/features/user/billing/show_spec.rb
+# spec/features/user/reservations/show_spec.rb
 
 require 'rails_helper'
 
-RSpec.describe 'BILLING SHOW PAGE' do
+RSpec.describe 'USER RESERVATIONS SHOW PAGE' do
   before :each do
     @room_1 = Room.create!(image: 'carousel_3.jpg', beds: 1, price: 99.99, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.')
 
@@ -27,17 +27,17 @@ RSpec.describe 'BILLING SHOW PAGE' do
 
   describe 'a user' do
     it 'can visit a reservation page' do
-      visit '/user/billing'
+      visit '/user/reservations'
 
       within "#reservation-#{@res_1.id}" do
         click_link "VIEW"
       end
 
-      expect(current_path).to eq("/user/billing/#{@res_1.id}")
+      expect(current_path).to eq("/user/reservations/#{@res_1.id}")
     end
 
     it 'has all information about reservation' do
-      visit "/user/billing/#{@res_1.id}"
+      visit "/user/reservations/#{@res_1.id}"
 
       expect(page).to have_content("Villa ##{@room_1.id}")
       expect(page).to have_xpath("//img['#{@room_1.image}']")

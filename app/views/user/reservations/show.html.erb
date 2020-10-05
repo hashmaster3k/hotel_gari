@@ -6,7 +6,7 @@
     <%= render partial: "/user/nav_profile" %>
     <section class='profile-content'>
       <div class="profile-nav-bar">
-        <h4><%= link_to 'Reservations', user_billing_index_path %> > #<%= @reservation.id %></h4>
+        <h4><%= link_to 'Reservations', user_reservations_path %> > #<%= @reservation.id %></h4>
       </div>
 
       <div class="row room-info-box">

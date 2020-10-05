@@ -8,8 +8,8 @@ Rails.application.routes.draw do
 
   get '/amenities', to: 'amenities#index'
 
-  get '/bookings', to: 'bookings#index'
-  get '/bookings/new', to: 'bookings#new'
+  get '/reservations', to: 'reservations#index'
+  get '/reservations/new', to: 'reservations#new'
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
@@ -25,7 +25,6 @@ Rails.application.routes.draw do
     get '/profile/password', to: 'profile#edit_password'
     patch '/profile/password', to: 'profile#update_password'
 
-    resources :billing, only: [:index, :show]
-    resources :bookings, only: [:new, :create]
+    resources :reservations, only: [:index, :show, :new, :create]
   end
 end

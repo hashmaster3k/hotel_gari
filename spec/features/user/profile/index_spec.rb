@@ -32,7 +32,7 @@ RSpec.describe 'USER PROFILE INDEX PAGE' do
       expect(page).to have_content("Welcome #{@user.first_name}!")
       expect(page).to have_link("Overview")
       expect(page).to have_link("Activities")
-      expect(page).to have_link("Billing")
+      expect(page).to have_link("Reservations")
       expect(page).to have_link("Profile")
     end
 

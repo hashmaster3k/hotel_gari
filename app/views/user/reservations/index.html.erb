@@ -12,7 +12,7 @@
       <% @reservations.each do |reservation| %>
         <div id="reservation-<%= reservation.id %>" class="reservation-box">
           <h5>Reservation #<%= reservation.id %> - <%= reservation.status %></h5>
-          <%= link_to 'VIEW', user_billing_path(reservation.id), class: "view-button"%>
+          <%= link_to 'VIEW', user_reservation_path(reservation.id), class: "view-button"%>
         </div>
       <% end %>
 

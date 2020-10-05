@@ -1,8 +1,8 @@
-# spec/features/bookings/index_spec.rb
+# spec/features/reservations/index_spec.rb
 
 require 'rails_helper'
 
-RSpec.describe 'BOOKINGS INDEX PAGE' do
+RSpec.describe 'RESERVATIONS INDEX PAGE' do
   before :each do
     @room_1 = Room.create!(image: 'carousel_3.jpg', beds: 1, price: 99.99, description: 'wow')
     @room_2 = Room.create!(image: 'carousel_3.jpg', beds: 1, price: 119.99, description: 'wow', river_view: true)
@@ -34,12 +34,12 @@ RSpec.describe 'BOOKINGS INDEX PAGE' do
   end
 
   describe 'a visitor' do
-    it 'has a valid link to bookings' do
-      visit '/bookings'
+    it 'has a valid link to reservations' do
+      visit '/reservations'
     end
 
     it 'cannot book without being logged in or registered' do
-      visit '/bookings'
+      visit '/reservations'
 
       fill_in 'Check-in', with: '2020-11-01'
       fill_in 'Check-out', with: '2020-11-02'
@@ -50,12 +50,12 @@ RSpec.describe 'BOOKINGS INDEX PAGE' do
         click_link "BOOK"
       end
 
-      expect(current_path).to eq('/bookings')
+      expect(current_path).to eq('/reservations')
       expect(page).to have_content('You must be logged in or register to continue')
     end
 
     it 'sees all currently available rooms by default' do
-      visit '/bookings'
+      visit '/reservations'
 
       within "#room-#{@room_1.id}" do
         expect(page).to have_xpath("//img['#{@room_1.image}']")
@@ -93,8 +93,8 @@ RSpec.describe 'BOOKINGS INDEX PAGE' do
   end
 
   describe 'search function' do
-    it 'has a search box for booking' do
-      visit '/bookings'
+    it 'has a search box for reservations' do
+      visit '/reservations'
 
       within '.search-box-booking'do
         expect(page).to have_content('Check-in')
@@ -105,14 +105,14 @@ RSpec.describe 'BOOKINGS INDEX PAGE' do
     end
 
     it 'displays available rooms when searching through specific dates' do
-      visit '/bookings'
+      visit '/reservations'
 
       fill_in 'Check-in', with: '2020-12-03'
       fill_in 'Check-out', with: '2020-12-06'
       select 'No', from: :river_view
       click_button "FIND VILLA"
 
-      expect(current_path).to eq('/bookings')
+      expect(current_path).to eq('/reservations')
 
       within "#room-#{@room_3.id}" do
         expect(page).to have_xpath("//img['#{@room_3.image}']")
@@ -128,7 +128,7 @@ RSpec.describe 'BOOKINGS INDEX PAGE' do
     end
 
     it 'displays available rooms matching rooms to number of guests' do
-      visit '/bookings'
+      visit '/reservations'
 
       fill_in 'Check-in', with: '2020-12-06'
       fill_in 'Check-out', with: '2020-12-07'
@@ -136,7 +136,7 @@ RSpec.describe 'BOOKINGS INDEX PAGE' do
       select 'Yes', from: :river_view
       click_button "FIND VILLA"
 
-      expect(current_path).to eq('/bookings')
+      expect(current_path).to eq('/reservations')
 
       expect(page).to_not have_css("#room-#{@room_1.id}")
       expect(page).to_not have_css("#room-#{@room_2.id}")

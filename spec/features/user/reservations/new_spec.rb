@@ -1,8 +1,8 @@
-# spec/features/user/bookings/new_spec.rb
+# spec/features/user/reservations/new_spec.rb
 
 require 'rails_helper'
 
-RSpec.describe 'BOOKINGS NEW PAGE' do
+RSpec.describe 'RESERVATIONS NEW PAGE' do
   before :each do
     @room_1 = Room.create!(image: 'carousel_3.jpg', beds: 1, price: 99.99, description: 'wow')
     @room_2 = Room.create!(image: 'carousel_3.jpg', beds: 1, price: 119.99, description: 'wow', river_view: true)
@@ -24,8 +24,8 @@ RSpec.describe 'BOOKINGS NEW PAGE' do
   end
 
   describe 'a user' do
-    it 'can create a new booking' do
-      visit '/bookings'
+    it 'can create a new reservations' do
+      visit '/reservations'
 
       fill_in 'Check-in', with: Date.today
       fill_in 'Check-out', with: Date.tomorrow
@@ -36,7 +36,7 @@ RSpec.describe 'BOOKINGS NEW PAGE' do
         click_link "BOOK"
       end
 
-      expect(current_path).to eq("/user/bookings/new")
+      expect(current_path).to eq("/user/reservations/new")
 
       within '.booking-confirm' do
         expect(page).to have_content("Confirm Booking")
@@ -49,7 +49,7 @@ RSpec.describe 'BOOKINGS NEW PAGE' do
         click_button "CONFIRM"
       end
 
-      expect(current_path).to eq('/user/billing')
+      expect(current_path).to eq('/user/reservations')
 
       within "#reservation-#{Reservation.last.id}" do
         expect(page).to have_content("Reservation ##{Reservation.last.id}")

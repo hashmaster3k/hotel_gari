@@ -1,7 +1,7 @@
 <article class='container-main'>
   <div class="search-box-container">
     <section class='search-box-booking'>
-      <%= form_tag '/bookings', method: :get do %>
+      <%= form_tag '/reservations', method: :get do %>
       <div class="row">
         <div class="col">
           <%= label_tag 'check_in[]', 'Check-in' %><br>
@@ -60,7 +60,7 @@
                 <p><%= room.description %></p>
               </div>
               <div class="room-info-bottom">
-                <%= link_to 'BOOK', bookings_new_path(room: room.id), class: 'book-button' %>
+                <%= link_to 'BOOK', reservations_new_path(room: room.id), class: 'book-button' %>
               </div>
             </div>
           </div>

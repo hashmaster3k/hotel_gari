@@ -1,4 +1,4 @@
-class BookingsController < ApplicationController
+class ReservationsController < ApplicationController
   def index
     if params[:commit]
       create_search_session
@@ -12,10 +12,10 @@ class BookingsController < ApplicationController
 
   def new
     if current_user
-      redirect_to new_user_booking_path(room: params[:room])
+      redirect_to new_user_reservation_path(room: params[:room])
     else
       flash[:error] = "You must be logged in or register to continue"
-      redirect_to bookings_path
+      redirect_to reservations_path
     end
   end
 
