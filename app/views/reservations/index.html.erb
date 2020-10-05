@@ -1,0 +1,70 @@
+<article class='container-main'>
+  <div class="search-box-container">
+    <section class='search-box-booking'>
+      <%= form_tag '/reservations', method: :get do %>
+      <div class="row">
+        <div class="col">
+          <%= label_tag 'check_in[]', 'Check-in' %><br>
+          <% if current_search %>
+            <%= date_field :check_in, nil, min: Date.today, required: true, value: current_search.check_in %><br><br>
+          <% else %>
+            <%= date_field :check_in, nil, min: Date.today, required: true, value: Date.today %><br><br>
+          <% end %>
+        </div>
+        <div class="col">
+          <%= label_tag 'check_out[]', 'Check-out' %><br>
+          <% if current_search %>
+            <%= date_field :check_out, nil, min: Date.today, required: true, value: current_search.check_out %><br><br>
+          <% else %>
+            <%= date_field :check_out, nil, min: Date.today, required: true, value: Date.today %><br><br>
+          <% end %>
+        </div>
+        <div class="col">
+          <div class="row">
+            <div class="col">
+              <%= label_tag 'Guests' %><br>
+              <% if current_search %>
+                <%= select_tag(:guests, options_for_select([['1',  '1'], ['2+',  '2']], current_search.guests), class: 'dp-selector') %>
+              <% else %>
+                <%= select_tag(:guests, options_for_select([['1',  '1'], ['2+',  '2']]), class: 'dp-selector') %>
+              <% end %>
+            </div>
+            <div class="col">
+              <%= label_tag 'River View' %><br>
+              <% if current_search %>
+                <%= select_tag(:river_view, options_for_select([['Yes',  true], ['No',  false]], current_search.view), class: 'dp-selector')  %>
+              <% else %>
+                <%= select_tag(:river_view, options_for_select([['Yes',  true], ['No',  false]]), class: 'dp-selector') %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+        <div class="col sb-submit">
+            <%= submit_tag 'FIND VILLA', class: 'submit-booking' %>
+        </div>
+      </div>
+      <% end %>
+    </section>
+  </div>
+    <section class='container-sub-booking'>
+      <div class='rooms-content'>
+        <% @rooms.each do |room| %>
+          <div class= 'room-box' id="room-<%= room.id %>">
+            <div class="room-image">
+              <%= image_tag room.image %>
+            </div>
+            <div class="room-info">
+              <div class="room-info-top">
+                <h5><%= room.beds %> Bed Villa <%= "| River View" if room.river_view %> | $<%= room.price %> </h5>
+                <p><%= room.description %></p>
+              </div>
+              <div class="room-info-bottom">
+                <%= link_to 'BOOK', reservations_new_path(room: room.id), class: 'book-button' %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </section>
+</article>

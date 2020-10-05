@@ -1,5 +1,7 @@
 class Room < ApplicationRecord
-  validates_presence_of :beds, :price
+  validates_presence_of :beds, :price, :image, :description
+
+  has_many :reservations
 
   def self.total
     Room.count
@@ -19,5 +21,18 @@ class Room < ApplicationRecord
 
   def self.average_cost
     Room.average(:price).to_f
+  end
+
+  def self.available_rooms
+    Room.where(is_rented: false)
+  end
+
+  def self.available_rooms_filtered(date_check_in, date_check_out, num_guests, view)
+    available_rooms_within_dates(date_check_in, date_check_out).where(river_view: view).where("beds >= #{num_guests.to_i}")
+  end
+
+  def self.available_rooms_within_dates(date_check_in, date_check_out)
+    ids_not_to_include = Room.joins(:reservations).where('check_out >= ? AND check_in <= ?', date_check_in, date_check_out).pluck(:id)
+    Room.left_outer_joins(:reservations).where.not(id: ids_not_to_include)
   end
 end

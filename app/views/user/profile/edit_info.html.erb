@@ -1,9 +1,9 @@
 <div class='profile-container'>
   <div class='welcome-message'>
-    <%= render partial: "header" %>
+    <%= render partial: "/user/header" %>
   </div>
   <article class='profile-main'>
-    <%= render partial: "nav_profile" %>
+    <%= render partial: "/user/nav_profile" %>
     <section class='profile-content'>
       <%= form_for @user, url: '/user/profile/' do |f| %>
         <div class="row">

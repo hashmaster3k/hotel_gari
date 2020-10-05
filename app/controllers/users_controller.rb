@@ -20,6 +20,7 @@ class UsersController < ApplicationController
                                  :password,
                                  :first_name,
                                  :last_name,
+                                 :phone,
                                  :address,
                                  :city,
                                  :state,

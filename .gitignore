@@ -31,3 +31,5 @@
 
 # Ignore MacOS file organizer
 /app/assets/.DS_Store
+
+TODO.md

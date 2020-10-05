@@ -8,6 +8,7 @@ RSpec.describe 'USER PROFILE SHOW PAGE' do
                 password: '123',
                 first_name: 'Joe',
                 last_name: 'James',
+                phone: '555-123-4567',
                 address: '1382 JJ Drive',
                 city: 'Denver',
                 state: 'CO',

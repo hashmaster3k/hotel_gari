@@ -1,0 +1,25 @@
+<div class='profile-container'>
+  <div class='welcome-message'>
+    <%= render partial: "/user/header" %>
+  </div>
+  <article class='profile-main'>
+    <%= render partial: "/user/nav_profile" %>
+    <section class='profile-content'>
+      <div class="booking-confirm">
+        <h4>Confirm Booking</h4>
+
+        Villa #<%= @room.id %><br><br>
+
+        Check-in: <%= current_search.check_in_formatted %><br>
+        Check-out: <%= current_search.check_out_formatted %><br><br>
+
+        Total nights: <%= current_search.num_nights %><br>
+        Price per night: $<%= @room.price %><br><br>
+
+        Total cost: $<%= current_search.total_cost(@room.price) %><br><br>
+
+        <%= button_to 'CONFIRM', user_reservations_path, params: {room: @room.id} %>
+      </div>
+    </section>
+  </article>
+</div>
